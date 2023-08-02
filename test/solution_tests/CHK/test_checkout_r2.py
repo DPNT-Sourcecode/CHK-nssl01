@@ -134,11 +134,13 @@ class TestCheckout():
         # 2D: 30
         # 2E: 80
         # total: 265?
+        # E deal is considered before B's deal runs
         assert(checkout_solution.checkout("ABCDEABCDE") == 280)
 
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
+
 
 
 
