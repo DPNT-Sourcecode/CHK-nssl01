@@ -33,15 +33,20 @@ def checkout(skus):
     a = count["A"]
     # mod 3 * 130
     # a - (above * 3) * 50
-    while a > 0:
-        if a >= 3:
-            total += 130
-            a -= 3
-        else:
-            total += 50
-            a -= 1  
+
+    num_deals = (a % 3)
+    total += num_deals * 130
+    total += (a - num_deals) * 50
+    # while a > 0:
+    #     if a >= 3:
+    #         total += 130
+    #         a -= 3
+    #     else:
+    #         total += 50
+    #         a -= 1  
 
     return total
+
 
 
 
