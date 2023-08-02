@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Type
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -14,18 +14,11 @@ prices = {
     "F": 10,
 }
 
-class Shop:
-    def __init__(self):
-        items = {}
-
-    def register_item(self, sku: str, item: Item):
-        self.items[sku] = item
-
-
-
+# An effect is anything that changes the price of something other than itself
+#
 
 class Item:
-    def __init__(self, price: int, amount: int) -> None:
+    def __init__(self, price: int, amount: int, effect: Option[callable]) -> None:
         self.price = price
         self.amount = amount
 
@@ -96,6 +89,17 @@ class ItemF():
         
         return amount * self.price
 
+
+class Shop:
+    def __init__(self):
+        items = {}
+
+    def register_item(self, sku: str, item: Type[Item]):
+        self.items[sku] = item
+
+
+
+
 def checkout(skus: str) -> int:
     if type(skus) != str:
         print("Wrong type")
@@ -134,4 +138,5 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 
