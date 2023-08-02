@@ -127,7 +127,7 @@ class TestCheckout():
 
     def test_all(self):
         # Assume input is like: "ABCABC" maybe?
-        assert(checkout_solution.checkout("ABCDE") == 155)
+        assert(checkout_solution.checkout("ABCDEF") == 165)
 
     def test_empty_string(self):
         assert(checkout_solution.checkout("") == 0)
@@ -140,7 +140,7 @@ class TestCheckout():
         assert(checkout_solution.checkout(0) == -1)
 
 
-    #
+    # Previous failed tests
     def test_failed(self):
         assert(checkout_solution.checkout("EEEEBB") == 160)
 
@@ -161,6 +161,7 @@ class TestCheckout():
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
+
 
 
 
