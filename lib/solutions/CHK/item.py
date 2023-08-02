@@ -14,3 +14,7 @@ class Item:
         self.amount = amount
         self.deal = deal
         self.effect = effect
+
+    def run_deal(self):
+        re
+
