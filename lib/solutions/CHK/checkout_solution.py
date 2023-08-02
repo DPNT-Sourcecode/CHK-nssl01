@@ -1,5 +1,3 @@
-from typing import Optional
-
 from solutions.CHK.items import Item
 
 # noinspection PyUnusedLocal
@@ -106,6 +104,7 @@ def checkout(skus: str) -> int:
     # return a_total + b_total + c_total + d_total + e_total + f_total
 
     return 0
+
 
 
 

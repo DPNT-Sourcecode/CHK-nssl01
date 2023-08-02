@@ -1,20 +1,6 @@
-from typing import Optional
-from solutions.CHK.shop import Shop
+from solutions.CHK.item import Item
 
-# An effect is anything that changes the price of something other than itself
-# Deals are anything that changes that price of itself
-# It seems that effects should run before deals
-class Item:
-    def __init__(self,
-                 price: int,
-                 amount: Optional[int] = 0,
-                 deal: Optional[callable] = None,
-                 effect: Optional[callable] = None,
-        ) -> None:
-        self.price = price
-        self.amount = amount
-        self.deal = deal
-        self.effect = effect
+
 
 def a_deal(self) -> int:
     amount = self.amount
@@ -32,7 +18,7 @@ def a_deal(self) -> int:
 
     return total
 
-def e_effect(self: Shop) -> None:
+def e_effect(self: 'Shop') -> None:
     if self.items["E"] != 0 and self.items["B"] != 0:
         b_amount = self.get_amount("B")
         e_amount = self.get_amount("E")
@@ -67,6 +53,7 @@ items = {
     "Y": Item(10),
     "Z": Item(50)
 }
+
 
 
 
