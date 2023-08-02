@@ -11,6 +11,7 @@ prices = {
     "C": 20,
     "D": 15,
     "E": 40,
+    "F": 10,
 }
 
 class Item:
@@ -70,6 +71,21 @@ class ItemE(Item):
     def __init__(self, amount: int) -> None:
         super().__init__(40, amount)
 
+class ItemF():
+    def __init__(self, amount: int) -> None:
+        self.amount = amount
+        self.price = 50
+
+    # 2F get one F free
+    # Instead of multi-pricing this item, they want to say
+    # "buy 2Fs and get another F free"
+    # The offer requires you to have 3 Fs in the basket.
+    def total_price(self) -> int:
+        
+
+
+        return total
+
 def checkout(skus: str) -> int:
     if type(skus) != str:
         print("Wrong type")
@@ -107,4 +123,5 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total)
     return a_total + b_total + c_total + d_total + e_total
+
 
