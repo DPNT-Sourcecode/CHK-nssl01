@@ -65,9 +65,3 @@ class TestCheckout():
     def test_failed(self):
         assert(checkout_solution.checkout("EEEEBB") == 160)
 
-
-
-
-
-
-

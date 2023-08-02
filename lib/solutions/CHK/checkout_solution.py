@@ -13,6 +13,19 @@ prices = {
     "E": 40,
 }
 
+class Item:
+    def __init__(self, price: int, amount: int, deal: Optional[callable] = None) -> None:
+        self.price = price
+        self.amount = amount
+        self.deal = deal
+
+    def price(self) -> int:
+        if self.deal != None:
+            return self.deal()
+        else:
+            return self.price * self.amount
+
+
 def checkout(skus: str) -> int:
     if type(skus) != str:
         print("Wrong type")
@@ -77,10 +90,4 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
-
-
-
-
-
-
 
