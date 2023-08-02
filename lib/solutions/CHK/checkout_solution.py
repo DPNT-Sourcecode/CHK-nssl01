@@ -13,9 +13,15 @@ prices = {
 }
 
 class Item:
-    def __init__(self, price) -> None:
+    def __init__(self, price, amount, deal: Optional = None) -> None:
         price: int = price
-        
+        amount: int = amount
+        deal: callable = deal
+
+    def get_price(self):
+        if deal:
+
+
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
@@ -56,6 +62,7 @@ def checkout(skus: str) -> int:
         total += count["D"] * 15
 
     return total
+
 
 
 
