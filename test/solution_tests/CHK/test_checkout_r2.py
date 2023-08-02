@@ -128,12 +128,17 @@ class TestCheckout():
 
     def test_3_failed(self):
         # Rerranged, AABBCCDDEE
-        # 2A: 
+        # 2A: 100
+        # 2B: (45 - 30) 15
+        # 2C: 40
+        # 2D: 30
+        # 2E: 80
         assert(checkout_solution.checkout("ABCDEABCDE") == 280)
 
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
+
 
 
 
