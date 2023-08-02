@@ -28,12 +28,18 @@ class TestShop():
             8: 330
         }
 
+        for k, v in shop.items.items():
+            print(k, v.deal)
+
         for amount, price in expected.items():
             shop.items["A"].amount = amount
             assert(shop.items["A"].deal() == price)
 
 
     # 2E get one B free
-    def test_e_effect(self):
-        shop = Shop()
+
+    # def test_e_effect(self):
+    #     shop = Shop()
+
+
 
