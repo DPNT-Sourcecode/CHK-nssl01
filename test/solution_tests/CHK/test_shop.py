@@ -34,4 +34,5 @@ class TestShop():
 
     # 2E get one B free
     def test_e_effect(self):
+        shop = Shop()
         

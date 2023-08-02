@@ -1,5 +1,7 @@
 from typing import Dict, NewType, Optional, Type
 
+from solutions.CHK import items
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 
@@ -92,10 +94,17 @@ SKU = NewType("SKU", str)
 
 class Shop:
     def __init__(self):
-        self.items: Dict[SKU, Item] = {}
+        self.items: Dict[SKU, Item] = items
 
     def get_amount(self, sku: SKU):
         return self.items[sku].amount
+    
+    def get_total_price(self):
+        self.run_effects()
+        self.run_deals()
+        total = 0
+        for sku, item in self.items.items():
+            if item.
 
     def add_item(self, sku: SKU, item: Type[Item]):
         self.items[sku] = item
@@ -151,6 +160,7 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 
 
 
