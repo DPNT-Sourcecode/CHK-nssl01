@@ -10,6 +10,7 @@ prices = {
     "B": 30,
     "C": 20,
     "D": 15,
+    "E": 40,
 }
 
 # maybe ill come back to this when required..
@@ -72,15 +73,14 @@ def checkout(skus: str) -> int:
     
     if "A" in count:
         a = count["A"]
+
         a_5_deals = a // 5
         total += a_5_deals * 200
-        a -= a_5_deals 
-        print(a)
+        a -= a_5_deals * 5
 
         a_3_deals = (a // 3)
         total += a_3_deals * 130
-        a -= a_3_deals
-        print(a)
+        a -= a_3_deals * 3
 
         total += a * prices["A"]
 
@@ -103,5 +103,6 @@ def checkout(skus: str) -> int:
         total += (e % 2) * prices["E"]
 
     return total
+
 
 

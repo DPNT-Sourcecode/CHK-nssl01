@@ -15,15 +15,26 @@ class TestCheckout():
     def test_five_a(self):
         assert(checkout_solution.checkout("AAAAA") == 200)
 
-    # def test_one_b(self):
-    #     assert(checkout_solution.checkout("B") == 30)
+    def test_one_b(self):
+        assert(checkout_solution.checkout("B") == 30)
 
-    # def test_two_b(self):
-    #     assert(checkout_solution.checkout("BB") == 45)
+    def test_two_b(self):
+        assert(checkout_solution.checkout("BB") == 45)
 
-    # def test_three_b(self):
-    #     # 45 + 30
-    #     assert(checkout_solution.checkout("BBB") == 75)
+    def test_three_b(self):
+        assert(checkout_solution.checkout("BBB") == 75)
+
+    def test_c(self):
+        assert(checkout_solution.checkout("C") == 20)
+
+    def test_d(self):
+        assert(checkout_solution.checkout("D") == 15)
+
+    def test_e(self):
+        assert(checkout_solution.checkout("E") == 40)
+
+    def test_e_deal(self):
+        assert(checkout_solution.checkout("EEB"))
 
     # def test_all(self):
     #     # Assume input is like: "ABCABC" maybe?
@@ -37,3 +48,4 @@ class TestCheckout():
 
     # def test_wrong_type(self):
     #     assert(checkout_solution.checkout(0) == -1)
+
