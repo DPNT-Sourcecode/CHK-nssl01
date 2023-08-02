@@ -28,8 +28,6 @@ class Item:
         ) -> None:
         self.price = price
         self.amount = amount
-        # An effect can change how many we need to consider for total price
-        self.amount_after_effect = amount
         self.deal = deal
         self.effect = effect
 
@@ -104,7 +102,7 @@ class Shop:
         self.run_deals()
         total = 0
         for sku, item in self.items.items():
-            if item.
+            total += 
 
     def add_item(self, sku: SKU, item: Type[Item]):
         self.items[sku] = item
@@ -160,6 +158,7 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 
 
 
