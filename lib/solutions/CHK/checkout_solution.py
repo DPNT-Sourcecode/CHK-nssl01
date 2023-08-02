@@ -1,6 +1,6 @@
-from typing import Dict, NewType, Optional, Type
+from typing import Optional
 
-from solutions.CHK import items
+from solutions.CHK.items import Item
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -15,22 +15,6 @@ prices = {
     "E": 40,
     "F": 10,
 }
-
-# An effect is anything that changes the price of something other than itself
-# Deals are anything that changes that price of itself
-# It seems that effects should run before deals
-class Item:
-    def __init__(self,
-                 price: int,
-                 amount: Optional[int] = 0,
-                 deal: Optional[callable] = None,
-                 effect: Optional[callable] = None,
-        ) -> None:
-        self.price = price
-        self.amount = amount
-        self.deal = deal
-        self.effect = effect
-
     
         
 
@@ -77,32 +61,7 @@ class ItemF():
         
         return amount * self.price
 
-SKU = NewType("SKU", str)
 
-class Shop:
-    def __init__(self):
-        self.items: Dict[SKU, Item] = items
-
-    def get_amount(self, sku: SKU):
-        return self.items[sku].amount
-    
-    def get_total_price(self):
-        self.run_effects()
-        self.run_deals()
-        return sum([x.price for x in self.items.values()])
-
-    def add_item(self, sku: SKU, item: Type[Item]):
-        self.items[sku] = item
-
-    def run_effects(self):
-        for item in self.items:
-            if item.effect != None:
-                item.effect()
-
-    def run_deals(self):
-        for item in self.items():
-            if item.deal != None:
-                item.deal()
 
 
 
