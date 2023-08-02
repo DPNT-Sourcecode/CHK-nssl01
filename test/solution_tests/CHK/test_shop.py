@@ -1,7 +1,9 @@
-from solutions.CHK import Shop, Item
+from solutions.CHK import checkout_solution
 
 class TestShop():
     def test_add_item(self):
-        shop = Shop()
-        to_add = Item("A", 50)
-        shop.add_item()
+        shop = checkout_solution.Shop()
+        to_add = checkout_solution.Item(price = 50, amount = 2)
+        shop.add_item("A", to_add)
+
+        assert(len(shop.items) == 1)
