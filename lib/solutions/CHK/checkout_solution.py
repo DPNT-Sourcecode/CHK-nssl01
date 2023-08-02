@@ -99,10 +99,17 @@ def checkout(skus: str) -> int:
     if "E" in count:
         e = count["E"]
         e_bogo = (e // 2)
+
+        if count["B"] > e_bogo:
+            total -= count["B"] * prices["B"]
+        else:
+            # we only want to make as many Bs free as we have 
+
         total -= e_bogo * 1
         total += (e % 2) * prices["E"]
 
     return total
+
 
 
 
