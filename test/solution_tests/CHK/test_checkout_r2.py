@@ -45,8 +45,9 @@ class TestCheckout():
         # always favour the customer, so 2B gets the deal + one free?
         # E: 40
         # E: 40
-        # 2B: 30 + 30, but with the E deal... 
-        assert(checkout_solution.checkout("EEBB") == 110)
+        # 2B: 30 + 30, but with the E deal... 45 - 30?
+        # checkout should always return an int, so no 45/2
+        assert(checkout_solution.checkout("EEBB") == )
 
     # def test_all(self):
     #     # Assume input is like: "ABCABC" maybe?
@@ -60,6 +61,7 @@ class TestCheckout():
 
     # def test_wrong_type(self):
     #     assert(checkout_solution.checkout(0) == -1)
+
 
 
 
