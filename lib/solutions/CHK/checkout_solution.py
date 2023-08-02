@@ -30,7 +30,10 @@ class Item:
         self.effect = effect
 
     def total_price(self) -> int:
-        return self.price * self.amount
+        if self.deal != None:
+            return self.deal(self)
+        else:
+            return self.price * self.amount
     
         
 
@@ -143,8 +146,4 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
-
-
-
-
 
