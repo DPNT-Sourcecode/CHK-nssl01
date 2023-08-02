@@ -62,9 +62,13 @@ class ItemC(Item):
     def __init__(self, amount: int) -> None:
         super().__init__(20, amount)
 
-class ItemC(Item):
+class ItemD(Item):
     def __init__(self, amount: int) -> None:
         super().__init__(15, amount)
+
+class ItemE(Item):
+    def __init__(self, amount: int) -> None:
+        super().__init__(40, amount)
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
@@ -90,23 +94,13 @@ def checkout(skus: str) -> int:
 
 
 
-    a = Item(count.get("A", 0))
-
-    
-    if "A" in count:
-        a = count["A"]
-
-
-
-    if "B" in count:
-        ...
+    a_total = ItemA(count.get("A", 0)).total_price()
+    b_total = ItemB(count.get("B"), 0).total_price()
+    c_total = ItemC(count.get("C"), 0).total_price()
+    d_total = ItemD(count.get("D"), 0).total_price()
+    e_total = ItemE(count.get("E")).
 
 
-    if "C" in count:
-        total += count["C"] * prices["C"]
-
-    if "D" in count:
-        total += count["D"] * prices["D"]
 
     if "E" in count:
         e = count["E"]
@@ -123,13 +117,4 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
-
-
-
-
-
-
-
-
-
 

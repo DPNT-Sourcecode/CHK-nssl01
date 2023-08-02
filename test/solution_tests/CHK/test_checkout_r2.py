@@ -54,6 +54,12 @@ class TestD():
             assert(d.total_price() == i * 15)
 
 
+class TestE():
+    def test_e(self):
+        for i in range(5):
+            e = checkout_solution.ItemE(amount=i)
+            assert(e.total_price() == i * 40)
+
 # class TestCheckout():
 #     def test_one_a(self):
 #         assert(checkout_solution.checkout("A") == 50)
@@ -116,12 +122,4 @@ class TestD():
 
 #     def test_failed(self):
 #         assert(checkout_solution.checkout("EEEEBB") == 160)
-
-
-
-
-
-
-
-
 
