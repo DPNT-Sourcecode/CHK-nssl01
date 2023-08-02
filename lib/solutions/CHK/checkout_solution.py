@@ -96,8 +96,11 @@ def checkout(skus: str) -> int:
     d_total = ItemD(count.get("D", 0)).total_price()
     e_total = ItemE(count.get("E", 0)).total_price()
 
-    b_amount_after_bogo = 
-    b_total = ItemB(count.get("B", 0)).total_price()
+    b_count = count.get("B", 0)
+    # Remove the number we get free, which should be half the int div of 
+    b_amount_after_bogo = (count["E"] // 2) + (b_count % 2)
+    b_total = ItemB(b_amount_after_bogo).total_price()
+
     # Total cost of of buy-one-get-ones to minus from 
     if "E" in count:
         b_bogo_to_minus = (ItemB(count["E"] // 2).total_price())
@@ -106,6 +109,7 @@ def checkout(skus: str) -> int:
             b_total = 0
 
     return a_total + b_total + c_total + d_total + e_total
+
 
 
 
