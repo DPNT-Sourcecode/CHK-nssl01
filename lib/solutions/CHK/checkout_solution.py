@@ -15,15 +15,23 @@ prices = {
 }
 
 # An effect is anything that changes the price of something other than itself
-#
-
+# Deals are anything that changes that price of itself
+# It seems that effects should run before deals
 class Item:
-    def __init__(self, price: int, amount: int, effect: Option[callable]) -> None:
+    def __init__(self,
+                 price: int,
+                 amount: int,
+                 deal: Optional[callable],
+                 effect: Optional[callable]
+        ) -> None:
         self.price = price
         self.amount = amount
+        self.deal = deal
+        self.effect = effect
 
     def total_price(self) -> int:
         return self.price * self.amount
+    
         
 
 class ItemA():
@@ -89,10 +97,10 @@ class ItemF():
         
         return amount * self.price
 
-
+type 
 class Shop:
     def __init__(self):
-        items = {}
+        items: Dict[] = {}
 
     def register_item(self, sku: str, item: Type[Item]):
         self.items[sku] = item
@@ -138,5 +146,6 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 
 
