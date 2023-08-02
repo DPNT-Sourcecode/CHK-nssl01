@@ -14,8 +14,9 @@ prices = {
 
 valid = ["A", "B", "C", "D"]
 
-def checkout(skus):
-    if type(skus) != "string":
+def checkout(skus: str) -> int:
+    print(type(skus))
+    if type(skus).__name__ != "str":
         return -1
     
     # Anything but A, B, C, or D is invalid
@@ -54,6 +55,7 @@ def checkout(skus):
         total += count["D"] * 15
 
     return total
+
 
 
 
