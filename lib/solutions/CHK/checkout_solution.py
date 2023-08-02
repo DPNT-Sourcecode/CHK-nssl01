@@ -39,21 +39,7 @@ class ItemA():
         self.amount = amount
         self.price = 50
 
-    def total_price(self) -> int:
-        amount = self.amount
-        total = 0
 
-        a_5_deals = amount // 5
-        total += a_5_deals * 200
-        amount -= a_5_deals * 5
-
-        a_3_deals = (amount // 3)
-        total += a_3_deals * 130
-        amount -= a_3_deals * 3
-
-        total += amount * self.price
-
-        return total
 
 class ItemB():
     def __init__(self, amount: int) -> None:

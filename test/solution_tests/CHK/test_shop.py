@@ -1,4 +1,5 @@
 from solutions.CHK.checkout_solution import Item, Shop
+from solutions.CHK.items import items
 
 class TestShop():
     def test_add_item(self):
@@ -11,5 +12,9 @@ class TestShop():
         a = shop.items["A"]
         assert(a.price == 50)
         assert(a.amount == 2)
+
+    def test_a_deal(self):
+        items["A"].amount = 1
+        assert(items["A"].deal()
 
     

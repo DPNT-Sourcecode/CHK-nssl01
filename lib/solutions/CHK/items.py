@@ -1,8 +1,23 @@
 from solutions.CHK.checkout_solution import Item
 
+def a_deal(self) -> int:
+    amount = self.amount
+    total = 0
+
+    a_5_deals = amount // 5
+    total += a_5_deals * 200
+    amount -= a_5_deals * 5
+
+    a_3_deals = (amount // 3)
+    total += a_3_deals * 130
+    amount -= a_3_deals * 3
+
+    total += amount * self.price
+
+    return total
 
 items = {
-    "A": Item(50),
+    "A": Item(50, deal=a_deal),
     "B": Item(30),
     "C": Item(20),
     "D": Item(15),
