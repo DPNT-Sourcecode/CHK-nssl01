@@ -21,7 +21,7 @@ class Item:
 
     def total_price(self) -> int:
         if self.deal != None:
-            return self.deal()
+            return self.deal(self.price, self.amount)
         else:
             return self.price * self.amount
 
@@ -65,7 +65,7 @@ def checkout(skus: str) -> int:
 
 
 
-    a = Item(prices["A"], sku.get("A", 0), a_total_price)
+    a = Item(prices["A"], count.get("A", 0), a_total_price)
 
     
     if "A" in count:
@@ -100,6 +100,7 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
 
