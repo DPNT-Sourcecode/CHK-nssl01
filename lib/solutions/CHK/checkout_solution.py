@@ -103,7 +103,7 @@ class Shop:
     def __init__(self):
         items: Dict[SKU, Item] = {}
 
-    def register_item(self, sku: SKU, item: Type[Item]):
+    def add_item(self, sku: SKU, item: Type[Item]):
         self.items[sku] = item
 
     def run_effects(self):

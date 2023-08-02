@@ -1,7 +1,10 @@
 from solutions.CHK import checkout_solution
 
 class TestShop():
-    def test_shop(self):
+    def test_add_item(self):
+        shop = checkout_solution.Shop()
+        to_add = checkout_solution.Item()
+        shop.add_item()
 
 class TestA():
     def test_a(self):
