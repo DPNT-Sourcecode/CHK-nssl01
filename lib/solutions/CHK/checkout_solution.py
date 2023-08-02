@@ -10,8 +10,12 @@ prices = {
     "B": 30,
     "C": 20,
     "D": 15,
-    "E": 40,
 }
+
+class Item:
+    def __init__(self, price) -> None:
+        price: int = price
+        
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
@@ -52,5 +56,6 @@ def checkout(skus: str) -> int:
         total += count["D"] * 15
 
     return total
+
 
 
