@@ -68,7 +68,7 @@ def checkout(skus: str) -> int:
 
 
 
-    a = Item(prices["A"], count.get("A", 0), a_total_price)
+    a = Item(count.get("A", 0))
 
     
     if "A" in count:
@@ -103,6 +103,7 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
 
