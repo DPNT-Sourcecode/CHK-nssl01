@@ -66,7 +66,8 @@ def checkout(skus: str) -> int:
         e = count["E"]
         e_bogo = (e // 2)
 
-        # we only want to make as many Bs free as we have 
+        # we only want to make as many Bs free as we have
+        # didn't factor in deals from b, don't want to give away money
         if "B" in count:
             if count["B"] < e_bogo:
                 total -= count["B"] * prices["B"]
@@ -76,6 +77,7 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
 

@@ -62,6 +62,11 @@ class TestCheckout():
     def test_wrong_type(self):
         assert(checkout_solution.checkout(0) == -1)
 
+    def test_failed(self):
+        assert(checkout_solution.checkout("EEEEBB") == 160)
+
+
+
 
 
 
