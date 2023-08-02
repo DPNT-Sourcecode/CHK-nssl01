@@ -51,12 +51,14 @@ prices = {
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
+        print("Wrong type")
         return -1
     
     # Anything but A, B, C, or D is invalid
     valid = prices.keys()
     for sku in skus:
         if sku not in valid:
+            print("Invalid SKU")
             return -1
         
     count = {}
@@ -100,15 +102,18 @@ def checkout(skus: str) -> int:
         e = count["E"]
         e_bogo = (e // 2)
 
-        if count["B"] > e_bogo:
-            total -= count["B"] * prices["B"]
-        else:
-            # we only want to make as many Bs free as we have 
+        # we only want to make as many Bs free as we have 
+        if "B" in count:
+            if count["B"] < e_bogo:
+                total -= count["B"] * prices["B"]
+            else:
+                total -= e_bogo * prices["B"]
 
         total -= e_bogo * 1
         total += (e % 2) * prices["E"]
 
     return total
+
 
 
 
