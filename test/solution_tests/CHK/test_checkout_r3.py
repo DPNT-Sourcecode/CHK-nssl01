@@ -1,5 +1,8 @@
 from solutions.CHK import checkout_solution
 
+class TestShop():
+    def test_shop(self):
+
 class TestA():
     def test_a(self):
         expected = {
@@ -162,4 +165,5 @@ class TestCheckout():
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
+
 

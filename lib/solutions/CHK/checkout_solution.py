@@ -1,4 +1,4 @@
-from typing import Optional, Type
+from typing import Dict, NewType, Optional, Type
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -21,8 +21,8 @@ class Item:
     def __init__(self,
                  price: int,
                  amount: int,
-                 deal: Optional[callable],
-                 effect: Optional[callable]
+                 deal: Optional[callable] = None,
+                 effect: Optional[callable] = None,
         ) -> None:
         self.price = price
         self.amount = amount
@@ -97,13 +97,24 @@ class ItemF():
         
         return amount * self.price
 
-type 
+SKU = NewType("SKU", str)
+
 class Shop:
     def __init__(self):
-        items: Dict[] = {}
+        items: Dict[SKU, Item] = {}
 
-    def register_item(self, sku: str, item: Type[Item]):
+    def register_item(self, sku: SKU, item: Type[Item]):
         self.items[sku] = item
+
+    def run_effects(self):
+        for item in self.items:
+            if item.effect != None:
+                item.effect()
+
+    def run_deals(self):
+        for item in self.items():
+            if item.deal != None:
+                item.deal()
 
 
 
@@ -146,6 +157,7 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 
 
 
