@@ -134,6 +134,7 @@ class TestCheckout():
 
     def test_invalid(self):
         # This better not go to Z...
+        # :(
         assert(checkout_solution.checkout("Z") == -1)
 
     def test_wrong_type(self):
@@ -161,6 +162,7 @@ class TestCheckout():
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
+
 
 
 
