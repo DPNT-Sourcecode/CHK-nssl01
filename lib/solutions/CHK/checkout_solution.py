@@ -20,7 +20,7 @@ prices = {
 class Item:
     def __init__(self,
                  price: int,
-                 amount: int,
+                 amount: Optional[int] = 0,
                  deal: Optional[callable] = None,
                  effect: Optional[callable] = None,
         ) -> None:
@@ -157,6 +157,7 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 
 
 
