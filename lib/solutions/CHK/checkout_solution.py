@@ -13,13 +13,28 @@ prices = {
 }
 
 class Checkout:
-    def __init__(self, skus):
+    def __init__(self, skus) -> None:
+        self.skus = skus
+
+        count = {}
+        for sku in skus:
+            if sku in count:
+                count[sku] += 1
+            else:
+                count[sku] = 1
+
+        self.counts = count
+
+    def get_count(self, sku: str) -> Optional[int]:
+        return self.counts[sku]
+
+
 
 class Item:
     def __init__(self, price, amount, deal: Optional[callable] = None) -> None:
-        price: int = price
-        amount: int = amount
-        deal: callable = deal
+        self.price: int = price
+        self.amount: int = amount
+        self.deal: callable = deal
 
     def get_price(self):
         if self.deal != None:
@@ -40,11 +55,7 @@ def checkout(skus: str) -> int:
         
     count = {}
 
-    for sku in skus:
-        if sku in count:
-            count[sku] += 1
-        else:
-            count[sku] = 1
+
 
     total = 0
 
@@ -69,6 +80,7 @@ def checkout(skus: str) -> int:
         total += count["D"] * 15
 
     return total
+
 
 
 
