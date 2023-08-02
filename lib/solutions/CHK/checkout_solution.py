@@ -14,10 +14,12 @@ prices = {
 
 def checkout(skus):
     total = 0
+    
     for sku in skus:
         if sku in prices:
             total += prices[sku]
 
     return total
+
 
 
