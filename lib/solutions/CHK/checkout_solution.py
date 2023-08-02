@@ -13,40 +13,7 @@ prices = {
     "E": 40,
 }
 
-# maybe ill come back to this when required..
 
-# class Checkout:
-#     def __init__(self, skus) -> None:
-#         self.skus = skus
-
-#         count = {}
-#         for sku in skus:
-#             if sku in count:
-#                 count[sku] += 1
-#             else:
-#                 count[sku] = 1
-
-#         self.counts = count
-
-#     def get_count(self, sku: str) -> int:
-#         if sku in self.counts:
-#             return self.counts[sku]
-#         else:
-#             return 0
-
-
-
-# class Item:
-#     def __init__(self, price, amount, deal: Optional[callable] = None) -> None:
-#         self.price: int = price
-#         self.amount: int = amount
-#         self.deal: callable = deal
-
-#     def get_price(self):
-#         if self.deal != None:
-#             return self.deal()
-#         else:
-#             return self.price * self.amount    
 
 
 def checkout(skus: str) -> int:
@@ -109,10 +76,10 @@ def checkout(skus: str) -> int:
             else:
                 total -= e_bogo * prices["B"]
 
-        total -= e_bogo * 1
-        total += (e % 2) * prices["E"]
+        total += count["E"] * prices["E"]
 
     return total
+
 
 
 

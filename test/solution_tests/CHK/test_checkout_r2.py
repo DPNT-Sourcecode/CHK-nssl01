@@ -33,9 +33,16 @@ class TestCheckout():
     def test_e(self):
         assert(checkout_solution.checkout("E") == 40)
 
+    def test_two_e(self):
+        assert(checkout_solution.checkout("EE") == 80)
+
     def test_e_deal(self):
         # (40 + 40) + 0 (B is free)
         assert(checkout_solution.checkout("EEB") == 80)
+
+    def test_e_deal_with_2_b(self):
+        # (40 + 40) + 30 + 0 (one B is free)
+        assert(checkout_solution.checkout("EEBB") == 80)
 
     # def test_all(self):
     #     # Assume input is like: "ABCABC" maybe?
@@ -49,5 +56,6 @@ class TestCheckout():
 
     # def test_wrong_type(self):
     #     assert(checkout_solution.checkout(0) == -1)
+
 
 
