@@ -101,7 +101,7 @@ SKU = NewType("SKU", str)
 
 class Shop:
     def __init__(self):
-        items: Dict[SKU, Item] = {}
+        self.items: Dict[SKU, Item] = {}
 
     def add_item(self, sku: SKU, item: Type[Item]):
         self.items[sku] = item
