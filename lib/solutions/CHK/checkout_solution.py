@@ -25,8 +25,11 @@ class Checkout:
 
         self.counts = count
 
-    def get_count(self, sku: str) -> Optional[int]:
-        return self.counts[sku]
+    def get_count(self, sku: str) -> int:
+        if sku in self.counts:
+            return self.counts[sku]
+        else:
+            return 0
 
 
 
@@ -80,6 +83,7 @@ def checkout(skus: str) -> int:
         total += count["D"] * 15
 
     return total
+
 
 
 
