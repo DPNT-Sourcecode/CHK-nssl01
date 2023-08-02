@@ -26,6 +26,7 @@ class Item:
         ) -> None:
         self.price = price
         self.amount = amount
+        self.amount_after_effect = amount
         self.deal = deal
         self.effect = effect
 
@@ -146,4 +147,5 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 

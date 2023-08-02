@@ -1,4 +1,4 @@
-from solutions.CHK.checkout_solution import Item
+from solutions.CHK.checkout_solution import Item, Shop
 
 def a_deal(self) -> int:
     amount = self.amount
@@ -16,8 +16,8 @@ def a_deal(self) -> int:
 
     return total
 
-def e_effect(self) -> None:
-    if "E" in count and b_count != 0:
+def e_effect(self: Shop) -> None:
+    if self.items["E"] != 0 and self.items["B"] != 0:
         b_amount_after_bogo = b_count - (count["E"] // 2)
         b_total = ItemB(b_amount_after_bogo).total_price()
     else:
