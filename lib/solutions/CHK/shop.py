@@ -21,12 +21,13 @@ class Shop:
         return sum([x.price for x in self.items.values()])
 
     def run_effects(self):
-        for item in self.items:
-            if item.effect != None:
+        for item in self.items.values():
+            if hasattr(item, "effect"):
                 item.effect()
 
     def run_deals(self):
-        for item in self.items():
+        for item in self.items.values():
             if item.deal != None:
                 item.deal()
+
 

@@ -17,9 +17,10 @@ class Item:
             self.deal = partial(deal, self)
         
         if effect:
-            self.effect = effect
+            self.effect = partial(effect, self)
 
     def run_deal(self):
         return self.deal(self)
+
 
 

@@ -35,7 +35,13 @@ class TestShop():
     # 2E get one B free
     def test_e_effect(self):
         shop = Shop()
-        shop.update_amount("")
+        shop.update_amount("B", 2)
+        shop.update_amount("E", 2)
+
+        shop.run_effects()
+
+        assert(shop.get_amount("B") == 1)
+
 
 
 
