@@ -12,11 +12,22 @@ class TestCheckout():
     def test_three_a(self):
         assert(checkout_solution.checkout("AAA") == 130)
 
+    def test_one_b(self):
+        assert(checkout_solution.checkout("B") == 30)
+
+    def test_two_b(self):
+        assert(checkout_solution.checkout("BB") == 45)
+
+    def test_three_b(self):
+        # 45 + 30
+        assert(checkout_solution.checkout("BBB") == 75)
+
     # def test_price(self):
         # Assume input is like: "ABCABC" maybe?
         # assert(checkout_solution.checkout("ABC") == 100
 
     def test_invalid(self):
         assert(checkout_solution.checkout("F") == -1)
+
 
 
