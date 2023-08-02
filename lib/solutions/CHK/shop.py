@@ -9,6 +9,9 @@ class Shop:
     def __init__(self):
         self.items: Dict[SKU, Item] = items
 
+    def update_amount(self, sku: SKU, amount: int):
+        self.items[sku].amount = amount
+
     def get_amount(self, sku: SKU):
         return self.items[sku].amount
     
