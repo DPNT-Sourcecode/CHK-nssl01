@@ -1,4 +1,4 @@
-from solutions.CHK import checkout_solution
+from solutions.CHK import checkout, Item, prices, a_total_price
 
 class TestA():
     def test_a(self):
@@ -15,10 +15,10 @@ class TestA():
             "AAAAAAAA": 330
         }
 
-        
 
         for input, price in expected.items():
-            assert(checkout_solution.(input) == price)
+            a = Item(prices["A"], len(input),  )
+            assert(checkout(input) == price)
 
 
 # class TestCheckout():
@@ -83,6 +83,7 @@ class TestA():
 
 #     def test_failed(self):
 #         assert(checkout_solution.checkout("EEEEBB") == 160)
+
 
 
 
