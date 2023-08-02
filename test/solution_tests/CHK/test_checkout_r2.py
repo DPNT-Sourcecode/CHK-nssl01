@@ -99,13 +99,10 @@ class TestCheckout():
         assert(checkout_solution.checkout("EEB") == 80)
 
     def test_e_deal_with_2_b(self):
-        # (40 + 40) + 30 + 0 (one B is free)
-        # always favour the customer, so 2B gets the deal + one free?
         # E: 40
         # E: 40
-        # 2B: 30 + 30, but with the E deal... 45 - 30?
-        # checkout should always return an int, so no 45/2
-        assert(checkout_solution.checkout("EEBB") == 95)
+        # 2B: 30 + 0 (one is free)
+        assert(checkout_solution.checkout("EEBB") == 110)
 
     def test_all(self):
         # Assume input is like: "ABCABC" maybe?
@@ -140,11 +137,4 @@ class TestCheckout():
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
-
-
-
-
-
-
-
 
