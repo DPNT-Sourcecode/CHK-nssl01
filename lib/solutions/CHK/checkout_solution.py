@@ -13,9 +13,6 @@ prices = {
     "E": 40,
 }
 
-
-
-
 def checkout(skus: str) -> int:
     if type(skus) != str:
         print("Wrong type")

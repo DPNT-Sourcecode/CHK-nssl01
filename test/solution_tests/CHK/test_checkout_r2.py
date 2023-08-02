@@ -47,20 +47,20 @@ class TestCheckout():
         # E: 40
         # 2B: 30 + 30, but with the E deal... 45 - 30?
         # checkout should always return an int, so no 45/2
-        assert(checkout_solution.checkout("EEBB") == )
+        assert(checkout_solution.checkout("EEBB") == 95)
 
-    # def test_all(self):
-    #     # Assume input is like: "ABCABC" maybe?
-    #     assert(checkout_solution.checkout("ABCD") == 115)
+    def test_all(self):
+        # Assume input is like: "ABCABC" maybe?
+        assert(checkout_solution.checkout("ABCDE") == 155)
 
-    # def test_empty_string(self):
-    #     assert(checkout_solution.checkout("") == 0)
+    def test_empty_string(self):
+        assert(checkout_solution.checkout("") == 0)
 
-    # def test_invalid(self):
-    #     assert(checkout_solution.checkout("F") == -1)
+    def test_invalid(self):
+        assert(checkout_solution.checkout("F") == -1)
 
-    # def test_wrong_type(self):
-    #     assert(checkout_solution.checkout(0) == -1)
+    def test_wrong_type(self):
+        assert(checkout_solution.checkout(0) == -1)
 
 
 
