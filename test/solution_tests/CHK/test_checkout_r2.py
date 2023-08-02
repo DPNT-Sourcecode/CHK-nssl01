@@ -1,6 +1,15 @@
 from solutions.CHK import checkout_solution
 
-
+class TestA():
+    def test_a(self):
+        expected = {
+            "A": 50,
+            "AA": 100,
+            # 3 for 130
+            "AAA": 130
+            # 3 for 130 + 1 for 50
+            "AAAA": 180
+        }
 
 class TestCheckout():
     def test_one_a(self):
@@ -64,4 +73,5 @@ class TestCheckout():
 
     def test_failed(self):
         assert(checkout_solution.checkout("EEEEBB") == 160)
+
 

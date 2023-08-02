@@ -26,6 +26,21 @@ class Item:
             return self.price * self.amount
 
 
+def a_total_price(price: int, amount: int):
+    total = 0
+
+    a_5_deals = a // 5
+    total += a_5_deals * 200
+    a -= a_5_deals * 5
+
+    a_3_deals = (a // 3)
+    total += a_3_deals * 130
+    a -= a_3_deals * 3
+
+    total += a * prices["A"]
+
+    return total
+
 def checkout(skus: str) -> int:
     if type(skus) != str:
         print("Wrong type")
@@ -48,22 +63,9 @@ def checkout(skus: str) -> int:
 
     total = 0
 
-    def a_total_price(price: int, amount: int):
-        total = 0
 
-        a_5_deals = a // 5
-        total += a_5_deals * 200
-        a -= a_5_deals * 5
 
-        a_3_deals = (a // 3)
-        total += a_3_deals * 130
-        a -= a_3_deals * 3
-
-        total += a * prices["A"]
-
-        return total
-
-    a = Item(prices["A"], sku.get("A", 0))
+    a = Item(prices["A"], sku.get("A", 0), a_total_price)
 
     
     if "A" in count:
@@ -98,5 +100,6 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
