@@ -22,7 +22,7 @@ class Item:
         return self.price * self.amount
         
 
-class ItemA(Item):
+class ItemA():
     def __init__(self, amount: int) -> None:
         self.amount = amount
         self.price = 50
@@ -43,7 +43,7 @@ class ItemA(Item):
 
         return total
 
-class ItemB(Item):
+class ItemB():
     def __init__(self, amount: int) -> None:
         self.amount = amount
         self.price = 50
@@ -58,6 +58,9 @@ class ItemB(Item):
 
         return total
 
+class ItemC(Item):
+    def __init__(self, price: int, amount: int, deal: Any | None = None) -> None:
+        super().__init__(price, amount, )
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
@@ -92,6 +95,7 @@ def checkout(skus: str) -> int:
 
 
     if "B" in count:
+        ...
 
 
     if "C" in count:
@@ -115,6 +119,7 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
 

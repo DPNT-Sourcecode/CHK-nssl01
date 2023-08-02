@@ -11,7 +11,7 @@ class TestA():
             "AAAA": 180,
             # 5 for 200
             "AAAAA": 200,
-            # 5 for 200 + 3 for 130
+            # 8 for 200 + 3 for 130
             "AAAAAAAA": 330
         }
 
@@ -21,24 +21,25 @@ class TestA():
             assert(a.total_price() == price)
 
 class TestB():
-    def test_a(self):
+    def test_b(self):
         expected = {
-            "B": 50,
-            "BB": 100,
-            # 3 for 130
-            "BBB": 130,
-            # 3 for 130 + 1 for 50
-            "BBBB": 180,
-            # 5 for 200
-            "BBBBB": 200,
-            # 5 for 200 + 3 for 130
-            "BBBBBBBB": 330
+            "B": 30,
+            ## 2 B for 45
+            "BB": 45,
+            # 3 for 30 + 45
+            "BBB": 75,
+            # 4 for 45 + 45
+            "BBBB": 90,
+            # 5 for 45 + 45 + 30
+            "BBBBB": 120,
+            # 8 45 * 4
+            "BBBBBBBB": 180
         }
 
 
         for input, price in expected.items():
-            a = checkout_solution.ItemA(amount=len(input))
-            assert(a.total_price() == price)
+            b = checkout_solution.ItemB(amount=len(input))
+            assert(b.total_price() == price)
 
 # class TestCheckout():
 #     def test_one_a(self):
@@ -102,6 +103,7 @@ class TestB():
 
 #     def test_failed(self):
 #         assert(checkout_solution.checkout("EEEEBB") == 160)
+
 
 
 
