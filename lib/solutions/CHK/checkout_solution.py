@@ -30,13 +30,19 @@ def checkout(skus):
 
     total = 0
     
-    for sku, amount in count:
-        # Check deals
-        if sku == "A":
-            if amount >= 3:
-                total += 
+    a = count["A"]
+    while a > 0:
+        if a >= 3:
+            total += 130
+            a -= 3
+        else:
+            total += 50
+            a -= 1
+
+    while 
     
 
     return total
+
 
 
