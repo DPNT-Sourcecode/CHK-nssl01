@@ -17,33 +17,32 @@ class Item:
     def __init__(self, price: int, amount: int, deal: Optional[callable] = None) -> None:
         self.price = price
         self.amount = amount
-        self.deal = deal
 
-    def total_price(self) -> int:
-        if self.deal != None:
-            return self.deal(self.price, self.amount)
-        else:
-            return self.price * self.amount
+    def price(self) -> int:
+        return self.price * self.amount
         
 
-class ItemA:
-    
+class ItemA(Item):
+    def __init__(self, amount: int) -> None:
+        self.amount = amount
+        self.price = 50
+
+    def price(self):
+        total = 0
+
+        a_5_deals = a // 5
+        total += a_5_deals * 200
+        a -= a_5_deals * 5
+
+        a_3_deals = (a // 3)
+        total += a_3_deals * 130
+        a -= a_3_deals * 3
+
+        total += a * self.price
+
+        return total
 
 
-def a_total_price(price: int, amount: int):
-    total = 0
-
-    a_5_deals = a // 5
-    total += a_5_deals * 200
-    a -= a_5_deals * 5
-
-    a_3_deals = (a // 3)
-    total += a_3_deals * 130
-    a -= a_3_deals * 3
-
-    total += a * prices["A"]
-
-    return total
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
@@ -104,6 +103,7 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
 
