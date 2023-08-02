@@ -20,9 +20,6 @@ class Shop:
         self.run_deals()
         return sum([x.price for x in self.items.values()])
 
-    def add_item(self, sku: SKU, item: Type[Item]):
-        self.items[sku] = item
-
     def run_effects(self):
         for item in self.items:
             if item.effect != None:
@@ -32,3 +29,4 @@ class Shop:
         for item in self.items():
             if item.deal != None:
                 item.deal()
+

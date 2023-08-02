@@ -2,12 +2,10 @@ from solutions.CHK.item import Item
 from solutions.CHK.shop import Shop
 
 class TestShop():
-    def test_add_item(self):
+    def test_default(self):
         shop = Shop()
-        to_add = Item(price = 50, amount = 2)
-        shop.add_item("A", to_add)
 
-        assert(len(shop.items) == 1)
+        shop.update_amount("A", 2)
 
         a = shop.items["A"]
         assert(a.price == 50)
@@ -40,6 +38,7 @@ class TestShop():
 
     # def test_e_effect(self):
     #     shop = Shop()
+
 
 
 
