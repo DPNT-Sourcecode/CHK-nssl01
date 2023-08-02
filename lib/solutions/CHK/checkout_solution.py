@@ -92,17 +92,8 @@ def checkout(skus: str) -> int:
     if "E" in count:
         e = count["E"]
         e_bogo = (e // 2)
-        total -= e_bogo * 
+        total -= e_bogo * 1
         total += (e % 2) * prices["E"]
 
     return total
-
-
-
-
-
-
-
-
-
 
