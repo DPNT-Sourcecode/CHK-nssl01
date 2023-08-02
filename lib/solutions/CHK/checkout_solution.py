@@ -20,13 +20,23 @@ def checkout(skus):
         if sku not in valid:
             return -1
         
-    
+    count = {}
+
+    for sku in skus:
+        if sku in count:
+            count[sku] += 1
+        else:
+            count[sku] = 1
 
     total = 0
     
-    for sku in skus:
-        if sku in prices:
-            total += prices[sku]
+    for sku, amount in count:
+        # Check deals
+        if sku == "A":
+            if amount >= 3:
+                total += 
+    
 
     return total
+
 
