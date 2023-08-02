@@ -1,5 +1,4 @@
 from solutions.CHK.checkout_solution import Item, Shop
-from solutions.CHK.items import items
 
 class TestShop():
     def test_add_item(self):
@@ -14,6 +13,7 @@ class TestShop():
         assert(a.amount == 2)
 
     def test_a_deal(self):
+        shop = Shop()
         expected = {
             1: 50,
             2: 100,
@@ -28,12 +28,13 @@ class TestShop():
         }
 
         for amount, price in expected.items():
-            items["A"].amount = amount
-            assert(items["A"].deal() == price)
+            shop.items["A"].amount = amount
+            assert(shop.items["A"].deal() == price)
 
 
     # 2E get one B free
     def test_e_effect(self):
         shop = Shop()
+
 
 
