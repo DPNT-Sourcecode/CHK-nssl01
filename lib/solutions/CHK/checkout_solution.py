@@ -18,7 +18,7 @@ class Item:
         self.price = price
         self.amount = amount
 
-    def price(self) -> int:
+    def total_price(self) -> int:
         return self.price * self.amount
         
 
@@ -27,21 +27,36 @@ class ItemA(Item):
         self.amount = amount
         self.price = 50
 
-    def price(self):
+    def total_price(self) -> int:
+        amount = self.amount
         total = 0
 
-        a_5_deals = a // 5
+        a_5_deals = amount // 5
         total += a_5_deals * 200
-        a -= a_5_deals * 5
+        amount -= a_5_deals * 5
 
-        a_3_deals = (a // 3)
+        a_3_deals = (amount // 3)
         total += a_3_deals * 130
-        a -= a_3_deals * 3
+        amount -= a_3_deals * 3
 
-        total += a * self.price
+        total += amount * self.price
 
         return total
 
+class ItemB(Item):
+    def __init__(self, amount: int) -> None:
+        self.amount = amount
+        self.price = 50
+
+    def total_price(self) -> int:
+        amount = self.amount
+        total = 0
+
+        b_deals = (amount // 2)
+        total += b_deals * 45
+        total += (amount % 2) * prices["B"]
+
+        return total
 
 
 def checkout(skus: str) -> int:
@@ -77,10 +92,7 @@ def checkout(skus: str) -> int:
 
 
     if "B" in count:
-        b = count["B"]
-        b_deals = (b // 2)
-        total += b_deals * 45
-        total += (b % 2) * prices["B"]
+
 
     if "C" in count:
         total += count["C"] * prices["C"]
@@ -103,6 +115,7 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
 

@@ -17,9 +17,28 @@ class TestA():
 
 
         for input, price in expected.items():
-            a = ItemA(len(input))
-            assert(checkout_solution.checkout(input) == a.price())
+            a = checkout_solution.ItemA(amount=len(input))
+            assert(a.total_price() == price)
 
+class TestB():
+    def test_a(self):
+        expected = {
+            "B": 50,
+            "BB": 100,
+            # 3 for 130
+            "BBB": 130,
+            # 3 for 130 + 1 for 50
+            "BBBB": 180,
+            # 5 for 200
+            "BBBBB": 200,
+            # 5 for 200 + 3 for 130
+            "BBBBBBBB": 330
+        }
+
+
+        for input, price in expected.items():
+            a = checkout_solution.ItemA(amount=len(input))
+            assert(a.total_price() == price)
 
 # class TestCheckout():
 #     def test_one_a(self):
@@ -83,6 +102,7 @@ class TestA():
 
 #     def test_failed(self):
 #         assert(checkout_solution.checkout("EEEEBB") == 160)
+
 
 
 
