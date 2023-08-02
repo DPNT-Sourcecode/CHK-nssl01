@@ -90,20 +90,21 @@ def checkout(skus: str) -> int:
         else:
             count[sku] = 1
 
-    total = 0
-
-
 
     a_total = ItemA(count.get("A", 0)).total_price()
-    b_total = ItemB(count.get("B"), 0).total_price()
-    c_total = ItemC(count.get("C"), 0).total_price()
-    d_total = ItemD(count.get("D"), 0).total_price()
-    e_total = ItemE(count.get("E"), 0).total_price()
+    b_total = ItemB(count.get("B", 0)).total_price()
+    c_total = ItemC(count.get("C", 0)).total_price()
+    d_total = ItemD(count.get("D", 0)).total_price()
+    e_total = ItemE(count.get("E", 0)).total_price()
 
     # Total cost of of buy-one-get-ones to minus from 
-    b_bogo_to_minus = (ItemB(count["E"] // 2).total_price())
-    b_total -= b
+    if "E" in count:
+        b_bogo_to_minus = (ItemB(count["E"] // 2).total_price())
+        b_total -= b_bogo_to_minus
+        if b_total < 0:
+            b_total = 0
 
-    return a_total + 
+    return a_total + b_total + c_total + d_total + e_total
+
 
 

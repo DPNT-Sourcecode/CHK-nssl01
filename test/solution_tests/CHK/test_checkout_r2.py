@@ -60,39 +60,39 @@ class TestE():
             e = checkout_solution.ItemE(amount=i)
             assert(e.total_price() == i * 40)
 
-# class TestCheckout():
-#     def test_one_a(self):
-#         assert(checkout_solution.checkout("A") == 50)
+class TestCheckout():
+    def test_one_a(self):
+        assert(checkout_solution.checkout("A") == 50)
 
-#     def test_two_a(self):
-#         assert(checkout_solution.checkout("AA") == 100)
+    def test_two_a(self):
+        assert(checkout_solution.checkout("AA") == 100)
 
-#     def test_three_a(self):
-#         assert(checkout_solution.checkout("AAA") == 130)
+    def test_three_a(self):
+        assert(checkout_solution.checkout("AAA") == 130)
 
-#     def test_five_a(self):
-#         assert(checkout_solution.checkout("AAAAA") == 200)
+    def test_five_a(self):
+        assert(checkout_solution.checkout("AAAAA") == 200)
 
-#     def test_one_b(self):
-#         assert(checkout_solution.checkout("B") == 30)
+    def test_one_b(self):
+        assert(checkout_solution.checkout("B") == 30)
 
-#     def test_two_b(self):
-#         assert(checkout_solution.checkout("BB") == 45)
+    def test_two_b(self):
+        assert(checkout_solution.checkout("BB") == 45)
 
-#     def test_three_b(self):
-#         assert(checkout_solution.checkout("BBB") == 75)
+    def test_three_b(self):
+        assert(checkout_solution.checkout("BBB") == 75)
 
-#     def test_c(self):
-#         assert(checkout_solution.checkout("C") == 20)
+    def test_c(self):
+        assert(checkout_solution.checkout("C") == 20)
 
-#     def test_d(self):
-#         assert(checkout_solution.checkout("D") == 15)
+    def test_d(self):
+        assert(checkout_solution.checkout("D") == 15)
 
-#     def test_e(self):
-#         assert(checkout_solution.checkout("E") == 40)
+    def test_e(self):
+        assert(checkout_solution.checkout("E") == 40)
 
-#     def test_two_e(self):
-#         assert(checkout_solution.checkout("EE") == 80)
+    def test_two_e(self):
+        assert(checkout_solution.checkout("EE") == 80)
 
 #     def test_e_deal(self):
 #         # (40 + 40) + 0 (B is free)
@@ -122,4 +122,5 @@ class TestE():
 
 #     def test_failed(self):
 #         assert(checkout_solution.checkout("EEEEBB") == 160)
+
 
