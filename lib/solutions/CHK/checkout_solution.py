@@ -1,4 +1,4 @@
-
+from typing import Optional
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -12,15 +12,20 @@ prices = {
     "D": 15,
 }
 
+class Checkout:
+    def __init__(self, skus):
+
 class Item:
-    def __init__(self, price, amount, deal: Optional = None) -> None:
+    def __init__(self, price, amount, deal: Optional[callable] = None) -> None:
         price: int = price
         amount: int = amount
         deal: callable = deal
 
     def get_price(self):
-        if deal:
-
+        if self.deal != None:
+            return self.deal()
+        else:
+            return self.price * self.amount    
 
 
 def checkout(skus: str) -> int:
@@ -42,6 +47,8 @@ def checkout(skus: str) -> int:
             count[sku] = 1
 
     total = 0
+
+
     
     if "A" in count:
         a = count["A"]
@@ -62,6 +69,7 @@ def checkout(skus: str) -> int:
         total += count["D"] * 15
 
     return total
+
 
 
 
