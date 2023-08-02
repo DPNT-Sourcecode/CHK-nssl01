@@ -74,13 +74,15 @@ class ItemE(Item):
 class ItemF():
     def __init__(self, amount: int) -> None:
         self.amount = amount
-        self.price = 50
+        self.price = 10
 
     # 2F get one F free
     # Instead of multi-pricing this item, they want to say
     # "buy 2Fs and get another F free"
     # The offer requires you to have 3 Fs in the basket.
     def total_price(self) -> int:
+        n_to_remove = self.amount // 3
+        amount = self.amount - n_to_remove
         
 
 
@@ -123,5 +125,6 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total)
     return a_total + b_total + c_total + d_total + e_total
+
 
 

@@ -60,6 +60,27 @@ class TestE():
             e = checkout_solution.ItemE(amount=i)
             assert(e.total_price() == i * 40)
 
+
+class TestF():
+    def test_f(self):
+        expected = {
+            "F": 10,
+            "F": 20,
+            # 3 for 2
+            "FFF": 20,
+            # 3 for 2 + 1
+            "FFFF": 30,
+            # 3 for 2 + 2
+            "FFFFF": 40,
+            # 6 for 4 (2 * 3 for 2)
+            "FFFFFF": 40,
+        }
+
+
+        for input, price in expected.items():
+            f = checkout_solution.ItemF(amount=len(input))
+            assert(f.total_price() == price)
+
 class TestCheckout():
     def test_one_a(self):
         assert(checkout_solution.checkout("A") == 50)
@@ -137,4 +158,5 @@ class TestCheckout():
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
+
 
