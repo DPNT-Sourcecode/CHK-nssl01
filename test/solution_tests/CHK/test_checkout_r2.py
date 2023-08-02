@@ -41,6 +41,19 @@ class TestB():
             b = checkout_solution.ItemB(amount=len(input))
             assert(b.total_price() == price)
 
+class TestC():
+    def test_c(self):
+        for i in range(5):
+            c = checkout_solution.ItemC(amount=i)
+            assert(c.total_price() == i * 20)
+
+class TestD():
+    def test_d(self):
+        for i in range(5):
+            d = checkout_solution.ItemD(amount=i)
+            assert(d.total_price() == i * 15)
+
+
 # class TestCheckout():
 #     def test_one_a(self):
 #         assert(checkout_solution.checkout("A") == 50)
@@ -103,6 +116,7 @@ class TestB():
 
 #     def test_failed(self):
 #         assert(checkout_solution.checkout("EEEEBB") == 160)
+
 
 
 

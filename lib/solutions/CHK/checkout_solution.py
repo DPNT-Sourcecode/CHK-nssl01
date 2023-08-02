@@ -14,7 +14,7 @@ prices = {
 }
 
 class Item:
-    def __init__(self, price: int, amount: int, deal: Optional[callable] = None) -> None:
+    def __init__(self, price: int, amount: int) -> None:
         self.price = price
         self.amount = amount
 
@@ -59,8 +59,12 @@ class ItemB():
         return total
 
 class ItemC(Item):
-    def __init__(self, price: int, amount: int, deal: Any | None = None) -> None:
-        super().__init__(price, amount, )
+    def __init__(self, amount: int) -> None:
+        super().__init__(20, amount)
+
+class ItemC(Item):
+    def __init__(self, amount: int) -> None:
+        super().__init__(15, amount)
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
@@ -119,6 +123,7 @@ def checkout(skus: str) -> int:
         total += count["E"] * prices["E"]
 
     return total
+
 
 
 
