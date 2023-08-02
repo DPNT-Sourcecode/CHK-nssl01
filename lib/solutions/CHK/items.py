@@ -16,6 +16,13 @@ def a_deal(self) -> int:
 
     return total
 
+def e_effect(self) -> None:
+    if "E" in count and b_count != 0:
+        b_amount_after_bogo = b_count - (count["E"] // 2)
+        b_total = ItemB(b_amount_after_bogo).total_price()
+    else:
+        b_total = ItemB(b_count).total_price()
+
 items = {
     "A": Item(50, deal=a_deal),
     "B": Item(30),

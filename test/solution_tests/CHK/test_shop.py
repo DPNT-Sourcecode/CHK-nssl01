@@ -15,25 +15,23 @@ class TestShop():
 
     def test_a_deal(self):
         expected = {
-            "A": 50,
-            "AA": 100,
+            1: 50,
+            2: 100,
             # 3 for 130
-            "AAA": 130,
+            3: 130,
             # 3 for 130 + 1 for 50
-            "AAAA": 180,
+            4: 180,
             # 5 for 200
-            "AAAAA": 200,
+            5: 200,
             # 8 for 200 + 3 for 130
-            "AAAAAAAA": 330
+            8: 330
         }
 
+        for amount, price in expected.items():
+            items["A"].amount = amount
+            assert(items["A"].total_price() == price)
 
-        items["A"].amount = 1
-        assert(items["A"].total_price() == 50)
 
-        items["A"].amount = 3
-        assert(items["A"].total_price() == 130)
-
-        items["A"].amount = 5
-        assert(items["A"].total_price() == 200)
-    
+    # 2E get one B free
+    def test_e_effect(self):
+        
