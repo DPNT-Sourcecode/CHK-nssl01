@@ -12,6 +12,8 @@ prices = {
     "D": 15,
 }
 
+# maybe ill come back to this when required..
+
 # class Checkout:
 #     def __init__(self, skus) -> None:
 #         self.skus = skus
@@ -68,21 +70,28 @@ def checkout(skus: str) -> int:
         a = count["A"]
         a_deals = (a // 3)
         total += a_deals * 130
-        total += (a % 3) * 50
+        total += (a % 3) * prices["A"]
 
     if "B" in count:
         b = count["B"]
         b_deals = (b // 2)
         total += b_deals * 45
-        total += (b % 2) * 30
+        total += (b % 2) * prices["B"]
 
     if "C" in count:
-        total += count["C"] * 20
+        total += count["C"] * prices["C"]
 
     if "D" in count:
-        total += count["D"] * 15
+        total += count["D"] * prices["D"]
+
+    if "E" in count:
+        e = count["E"]
+        e_bogo = (e // 2)
+        total += e_bogo * prices["E"]
+        total += (e % 2) * prices["E"]
 
     return total
+
 
 
 
