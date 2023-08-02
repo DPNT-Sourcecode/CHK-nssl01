@@ -14,6 +14,16 @@ prices = {
     "F": 10,
 }
 
+class Shop:
+    def __init__(self):
+        items = {}
+
+    def register_item(self, sku: str, item: Item):
+        self.items[sku] = item
+
+
+
+
 class Item:
     def __init__(self, price: int, amount: int) -> None:
         self.price = price
@@ -124,7 +134,4 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
-
-
-
 
