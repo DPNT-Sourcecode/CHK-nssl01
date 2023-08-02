@@ -1,4 +1,5 @@
 from typing import Optional
+from functools import partial
 
 # An effect is anything that changes the price of something other than itself
 # Deals are anything that changes that price of itself
@@ -12,9 +13,13 @@ class Item:
         ) -> None:
         self.price = price
         self.amount = amount
-        self.deal = deal
-        self.effect = effect
+        if deal:
+            self.deal = partial(deal, self)
+        
+        if effect:
+            self.effect = effect
 
     def run_deal(self):
-        re
+        return self.deal(self)
+
 
