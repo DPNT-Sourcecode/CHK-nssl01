@@ -18,10 +18,12 @@ def a_deal(self) -> int:
 
 def e_effect(self: Shop) -> None:
     if self.items["E"] != 0 and self.items["B"] != 0:
-        b_amount_after_bogo = b_count - (count["E"] // 2)
-        b_total = ItemB(b_amount_after_bogo).total_price()
+        b_amount = self.get_amount("B")
+        e_amount = self.get_amount("E")
+        b_amount_after_bogo = b_amount - (e_amount // 2)
+        self.items["B"].amount_after_effect = b_amount_after_bogo
     else:
-        b_total = ItemB(b_count).total_price()
+        b_total = ItemB(b_amount).total_price()
 
 items = {
     "A": Item(50, deal=a_deal),
@@ -51,3 +53,4 @@ items = {
     "Y": Item(10),
     "Z": Item(50)
 }
+

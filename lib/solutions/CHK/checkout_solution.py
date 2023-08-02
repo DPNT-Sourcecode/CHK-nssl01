@@ -26,6 +26,7 @@ class Item:
         ) -> None:
         self.price = price
         self.amount = amount
+        # An effect can change how many we need to consider for total price
         self.amount_after_effect = amount
         self.deal = deal
         self.effect = effect
@@ -93,6 +94,9 @@ class Shop:
     def __init__(self):
         self.items: Dict[SKU, Item] = {}
 
+    def get_amount(self, sku: SKU):
+        return self.items[sku].amount
+
     def add_item(self, sku: SKU, item: Type[Item]):
         self.items[sku] = item
 
@@ -147,5 +151,6 @@ def checkout(skus: str) -> int:
 
     print(a_total, b_total, c_total, d_total, e_total, f_total)
     return a_total + b_total + c_total + d_total + e_total + f_total
+
 
 
