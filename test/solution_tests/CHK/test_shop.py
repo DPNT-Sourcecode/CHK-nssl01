@@ -1,4 +1,5 @@
-from solutions.CHK.checkout_solution import Item, Shop
+from solutions.CHK.item import Item
+from solutions.CHK.shop import Shop
 
 class TestShop():
     def test_add_item(self):
@@ -35,6 +36,4 @@ class TestShop():
     # 2E get one B free
     def test_e_effect(self):
         shop = Shop()
-
-
 

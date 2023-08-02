@@ -105,10 +105,3 @@ def checkout(skus: str) -> int:
 
     return 0
 
-
-
-
-
-
-
-

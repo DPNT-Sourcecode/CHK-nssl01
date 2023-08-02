@@ -1,7 +1,5 @@
 from solutions.CHK.item import Item
 
-
-
 def a_deal(self) -> int:
     amount = self.amount
     total = 0
@@ -18,7 +16,7 @@ def a_deal(self) -> int:
 
     return total
 
-def e_effect(self: 'Shop') -> None:
+def e_effect(self) -> None:
     if self.items["E"] != 0 and self.items["B"] != 0:
         b_amount = self.get_amount("B")
         e_amount = self.get_amount("E")
@@ -53,7 +51,3 @@ items = {
     "Y": Item(10),
     "Z": Item(50)
 }
-
-
-
-
