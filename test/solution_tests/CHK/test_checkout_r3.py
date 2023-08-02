@@ -65,7 +65,7 @@ class TestF():
     def test_f(self):
         expected = {
             "F": 10,
-            "F": 20,
+            "FF": 20,
             # 3 for 2
             "FFF": 20,
             # 3 for 2 + 1
@@ -133,11 +133,14 @@ class TestCheckout():
         assert(checkout_solution.checkout("") == 0)
 
     def test_invalid(self):
-        assert(checkout_solution.checkout("F") == -1)
+        # This better not go to Z...
+        assert(checkout_solution.checkout("Z") == -1)
 
     def test_wrong_type(self):
         assert(checkout_solution.checkout(0) == -1)
 
+
+    #
     def test_failed(self):
         assert(checkout_solution.checkout("EEEEBB") == 160)
 
@@ -158,5 +161,6 @@ class TestCheckout():
 
 # - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
 #  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
+
 
 

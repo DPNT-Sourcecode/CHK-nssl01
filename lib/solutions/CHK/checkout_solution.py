@@ -84,9 +84,7 @@ class ItemF():
         n_to_remove = self.amount // 3
         amount = self.amount - n_to_remove
         
-
-
-        return total
+        return amount * self.price
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
@@ -113,6 +111,7 @@ def checkout(skus: str) -> int:
     c_total = ItemC(count.get("C", 0)).total_price()
     d_total = ItemD(count.get("D", 0)).total_price()
     e_total = ItemE(count.get("E", 0)).total_price()
+    f_total = ItemF(count.get("F", 0)).total_price()
 
     b_count = count.get("B", 0)
     # Remove the number we get free, which should be half the int div of E
@@ -123,8 +122,9 @@ def checkout(skus: str) -> int:
     else:
         b_total = ItemB(b_count).total_price()
 
-    print(a_total, b_total, c_total, d_total, e_total)
-    return a_total + b_total + c_total + d_total + e_total
+    print(a_total, b_total, c_total, d_total, e_total, f_total)
+    return a_total + b_total + c_total + d_total + e_total + f_total
+
 
 
 
