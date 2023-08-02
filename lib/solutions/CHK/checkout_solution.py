@@ -60,7 +60,11 @@ def checkout(skus: str) -> int:
         
     count = {}
 
-
+    for sku in skus:
+        if sku in count:
+            count[sku] += 1
+        else:
+            count[sku] = 1
 
     total = 0
 
@@ -70,12 +74,15 @@ def checkout(skus: str) -> int:
         a = count["A"]
         a_5_deals = a // 5
         total += a_5_deals * 200
-        a = a - a_5_deals 
+        a -= a_5_deals 
+        print(a)
 
         a_3_deals = (a // 3)
         total += a_3_deals * 130
+        a -= a_3_deals
+        print(a)
 
-        total += (a % 3) * prices["A"]
+        total += a * prices["A"]
 
     if "B" in count:
         b = count["B"]
@@ -96,4 +103,5 @@ def checkout(skus: str) -> int:
         total += (e % 2) * prices["E"]
 
     return total
+
 
