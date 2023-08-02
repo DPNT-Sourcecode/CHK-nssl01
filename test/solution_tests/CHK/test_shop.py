@@ -29,10 +29,11 @@ class TestShop():
 
         for amount, price in expected.items():
             items["A"].amount = amount
-            assert(items["A"].total_price() == price)
+            assert(items["A"].deal() == price)
 
 
     # 2E get one B free
     def test_e_effect(self):
         shop = Shop()
-        
+
+
