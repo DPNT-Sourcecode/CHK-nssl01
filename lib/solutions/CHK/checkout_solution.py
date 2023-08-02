@@ -10,15 +10,15 @@ prices = {
     "B": 30,
     "C": 20,
     "D": 15,
+    "E": 40,
 }
-
-valid = ["A", "B", "C", "D"]
 
 def checkout(skus: str) -> int:
     if type(skus) != str:
         return -1
     
     # Anything but A, B, C, or D is invalid
+    valid = prices.keys()
     for sku in skus:
         if sku not in valid:
             return -1
@@ -52,4 +52,5 @@ def checkout(skus: str) -> int:
         total += count["D"] * 15
 
     return total
+
 
