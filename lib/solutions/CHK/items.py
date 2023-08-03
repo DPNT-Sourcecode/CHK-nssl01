@@ -12,7 +12,10 @@ class Deal():
         self.deals = deals
 
     def build(self, item: Item):
-        sorted_by_amount = self.deals.sort(key=)
+        self.deals.sort(key=lambda x: x.amount)
+        total = 0
+
+        for 
 
 def a_deal(self: Item) -> int:
     amount = self.amount
@@ -132,10 +135,3 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
-
-
-
-
-
-
-

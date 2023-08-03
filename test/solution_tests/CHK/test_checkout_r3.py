@@ -195,9 +195,3 @@ class TestCheckout():
         assert(checkout_solution.checkout("ABCDEABCDE") == 280)
 
 
-
-
-
-
-
-
