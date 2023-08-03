@@ -1,6 +1,15 @@
 from solutions.CHK.item import Item, Price
+from solutions.CHK.shop import SKU
 
-def make_effect(shop, )
+def make_effect(shop, affected: SKU, cause: SKU, amount: int):
+    if affected in shop.items and cause in shop.items:
+        affected_amount = shop.get_amount(affected)
+        effect_amount = shop.get_amount(cause)
+        amount_after_bogo = affected_amount - (effect_amount // 3)
+
+        # No minus amounts
+        shop.items[affected].amount = max(0, amount_after_bogo)
+    
 
 # Takes 'Shop'
 def e_effect(self) -> None:
@@ -12,6 +21,8 @@ def e_effect(self) -> None:
         # No minus amounts
         self.items["B"].amount = max(0, b_amount_after_bogo)
 
+
+e_effect = make_effect()
 
 # 3N get one M free
 def n_effect(self) -> None:
@@ -64,3 +75,4 @@ items = {
     "Y": lambda amount = 0: Item([Price(1, 10)], amount),
     "Z": lambda amount = 0: Item([Price(1, 50)], amount)
 }
+
