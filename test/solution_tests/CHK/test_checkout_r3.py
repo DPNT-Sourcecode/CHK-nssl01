@@ -157,6 +157,11 @@ class TestCheckout():
         for input, price in expected.items():
             assert(checkout_solution.checkout(input) == price)
 
+    
+    def test_n(self):
+        assert(checkout_solution.checkout("NNN") == 120)
+        assert(checkout_solution.checkout("NNNM") == 120)
+
     def test_all(self):
         # Assume input is like: "ABCABC" maybe?
         assert(checkout_solution.checkout("ABCDEF") == 165)
@@ -188,6 +193,7 @@ class TestCheckout():
         # total: 265?
         # E deal is considered before B's deal runs
         assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+
 
 
 

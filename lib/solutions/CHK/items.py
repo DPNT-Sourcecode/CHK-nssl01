@@ -69,11 +69,13 @@ def e_effect(self) -> None:
         # No minus amounts
         self.items["B"].amount = max(0, b_amount_after_bogo)
 
+
+# 3N get one M free
 def n_effect(self) -> None:
     if "E" in self.items and "B" in self.items:
-        effected_amount = self.get_amount("M")
-        e_amount = self.get_amount("E")
-        amount_after_bogo = effected_amount - (e_amount // 3)
+        affected_amount = self.get_amount("M")
+        effect_amount = self.get_amount("N")
+        amount_after_bogo = affected_amount - (effect_amount // 3)
 
         # No minus amounts
         self.items["M"].amount = max(0, amount_after_bogo)
@@ -107,6 +109,7 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
 
 
 
