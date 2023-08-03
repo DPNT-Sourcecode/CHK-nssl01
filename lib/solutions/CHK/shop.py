@@ -50,6 +50,7 @@ class Shop:
     def run_groups(self):
         groups_total = 0
         seen = {}
+        removed = {}
         for group in self.groups:
             for sku in group.skus:
                 if sku in self.items:
@@ -62,10 +63,12 @@ class Shop:
                         seen[sku] -= 1
                         count += 1
                         if count == group.size:
+                            removed.update(seen)
                             count = 0
                             groups_total += group.price
 
-        for sku, amount in seen.items():
+        print(removed)
+        for sku, amount in removed.items():
             self.items[sku].amount = amount
 
         return groups_total
@@ -92,4 +95,5 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
