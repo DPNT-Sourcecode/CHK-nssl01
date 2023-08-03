@@ -22,9 +22,13 @@ class Shop:
     def get_total_price(self):
         self.run_effects()
         total = 0
-        for sku, item in self.items.items():
+        for item in self.items.values():
             total += item.get_price()
         return total
+
+    def add_group(self, skus: [SKU], group_size: int, price: int):
+        count = 0
+        
 
     def add_effect(self, affected: SKU, cause: SKU, amount: int):
         """
@@ -48,3 +52,4 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+

@@ -8,9 +8,6 @@ class Price:
     price: int
 
 
-# An effect is anything that changes the price of something other than itself
-# Deals are anything that changes that price of itself
-# It seems that effects should run before deals
 class Item:
     def __init__(
         self,
@@ -31,3 +28,4 @@ class Item:
             amount -= current_deal * price.amount
 
         return total
+
