@@ -1,5 +1,7 @@
 from solutions.CHK.item import Item
 
+
+
 def a_deal(self: Item) -> int:
     amount = self.amount
     total = 0
@@ -27,10 +29,10 @@ def b_deal(self: Item) -> int:
         return total
 
 def f_deal(self: Item) -> int:
-        n_to_remove = self.amount // 3
-        amount = self.amount - n_to_remove
-        
-        return amount * self.price
+    n_to_remove = self.amount // 3
+    amount = self.amount - n_to_remove
+    
+    return amount * self.price
 
 def h_deal(self: Item) -> int:
     amount = self.amount
@@ -49,15 +51,24 @@ def h_deal(self: Item) -> int:
     return total
 
 def k_deal(self: Item) -> int:
-        amount = self.amount
-        total = 0
+    amount = self.amount
+    total = 0
 
-        b_deals = (amount // 2)
-        total += b_deals * 150
-        total += (amount % 2) * self.price
+    b_deals = (amount // 2)
+    total += b_deals * 150
+    total += (amount % 2) * self.price
 
-        return total
+    return total
 
+def k_deal(self: Item) -> int:
+    amount = self.amount
+    total = 0
+
+    b_deals = (amount // 2)
+    total += b_deals * 150
+    total += (amount % 2) * self.price
+
+    return total
 
 # Takes 'Shop'
 def e_effect(self) -> None:
@@ -72,7 +83,7 @@ def e_effect(self) -> None:
 
 # 3N get one M free
 def n_effect(self) -> None:
-    if "E" in self.items and "B" in self.items:
+    if "N" in self.items and "M" in self.items:
         affected_amount = self.get_amount("M")
         effect_amount = self.get_amount("N")
         amount_after_bogo = affected_amount - (effect_amount // 3)
@@ -95,7 +106,7 @@ items = {
     "K": lambda amount = 0: Item(80, amount, deal=k_deal),
     "L": lambda amount = 0: Item(90, amount),
     "M": lambda amount = 0: Item(15, amount),
-    "N": lambda amount = 0: Item(40, amount),
+    "N": lambda amount = 0: Item(40, amount, effect=n_effect),
     "O": lambda amount = 0: Item(10, amount),
     "P": lambda amount = 0: Item(50, amount),
     "Q": lambda amount = 0: Item(30, amount),
@@ -109,6 +120,7 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
 
 
 
