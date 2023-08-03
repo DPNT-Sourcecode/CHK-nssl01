@@ -34,7 +34,12 @@ def checkout(skus: str) -> int:
     shop.run_effects()
     shop.run_deals()
 
+    for k, v in shop.items.items():
+        print(k, v.amount)
+
+
     return shop.get_total_price()
+
 
 
 
