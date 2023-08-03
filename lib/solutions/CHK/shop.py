@@ -28,12 +28,19 @@ class Shop:
     def get_amount(self, sku: SKU):
         return self.items[sku].amount
 
+    """
+    Gets total price of basket
+
+    Cost affectors run in the following order:
+    1. groups
+    2. effects
+    3. deals
+    """
+
     def get_total_price(self):
-        # Maybe groups should go first?
-        self.run_groups()
+        total = self.run_groups()
 
         self.run_effects()
-        total = 0
         for item in self.items.values():
             total += item.get_price()
         return total
@@ -55,8 +62,6 @@ class Shop:
                         else:
                             seen[sku] += 1
 
-                print(seen)
-
                 # If we've reached the group size, add the price of the group
                 # And remove the SKUs that make up the group from the items
                 if sum([x for x in seen.values()]) == group.size:
@@ -65,7 +70,7 @@ class Shop:
                     for sku in seen.keys():
                         self.items[sku].amount -= 1
 
-                    continue
+                    break
 
         return groups_total
 
@@ -91,4 +96,5 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
