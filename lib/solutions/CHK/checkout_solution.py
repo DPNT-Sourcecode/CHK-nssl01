@@ -27,14 +27,15 @@ def checkout(skus: str) -> int:
         else:
             count[sku] = 1
 
-    shop = Shop(copy.deepcopy(items))
+    shop = Shop()
     for sku, amount in count.items():
-        shop.add_item(sku, Item())
+        shop.add_item(sku, items[sku](amount))
 
     shop.run_effects()
     shop.run_deals()
 
     return shop.get_total_price()
+
 
 
 

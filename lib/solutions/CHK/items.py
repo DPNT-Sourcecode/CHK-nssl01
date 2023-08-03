@@ -34,7 +34,7 @@ def f_deal(self: Item) -> int:
 
 # Takes 'Shop'
 def e_effect(self) -> None:
-    if self.items["E"] != 0 and self.items["B"] != 0:
+    if self.items["E"] != 0 and "B" in self.items:
         b_amount = self.get_amount("B")
         e_amount = self.get_amount("E")
         b_amount_after_bogo = b_amount - (e_amount // 2)
@@ -44,30 +44,30 @@ def e_effect(self) -> None:
 
 
 items = {
-    "A": Item(50, deal=a_deal),
-    "B": Item(30, deal=b_deal),
-    "C": Item(20),
-    "D": Item(15),
-    "E": Item(40, effect=e_effect),
-    "F": Item(10, deal=f_deal),
-    "G": Item(20),
-    "H": Item(10),
-    "I": Item(35),
-    "J": Item(60),
-    "K": Item(80),
-    "L": Item(90),
-    "M": Item(15),
-    "N": Item(40),
-    "O": Item(10),
-    "P": Item(50),
-    "Q": Item(30),
-    "R": Item(50),
-    "S": Item(30),
-    "T": Item(20),
-    "U": Item(40),
-    "V": Item(50),
-    "W": Item(20),
-    "X": Item(90),
-    "Y": Item(10),
-    "Z": Item(50)
+    "A": lambda amount = 0: Item(50, amount=amount, deal=a_deal),
+    "B": lambda amount = 0: Item(30, amount=amount, deal=b_deal),
+    "C": lambda amount = 0: Item(20, amount=amount),
+    "D": lambda amount = 0: Item(15, amount=amount),
+    "E": lambda amount = 0: Item(40, amount=amount, effect=e_effect),
+    "F": lambda amount = 0: Item(10, amount=amount, deal=f_deal),
+    "G": lambda amount = 0: Item(20, amount=amount),
+    "H": lambda amount = 0: Item(10, amount=amount),
+    "I": lambda amount = 0: Item(35, amount=amount),
+    "J": lambda amount = 0: Item(60, amount=amount),
+    "K": lambda amount = 0: Item(80, amount=amount),
+    "L": lambda amount = 0: Item(90, amount=amount),
+    "M": lambda amount = 0: Item(15, amount=amount),
+    "N": lambda amount = 0: Item(40, amount=amount),
+    "O": lambda amount = 0: Item(10, amount=amount),
+    "P": lambda amount = 0: Item(50, amount=amount),
+    "Q": lambda amount = 0: Item(30, amount=amount),
+    "R": lambda amount = 0: Item(50, amount=amount),
+    "S": lambda amount = 0: Item(30, amount=amount),
+    "T": lambda amount = 0: Item(20, amount=amount),
+    "U": lambda amount = 0: Item(40, amount=amount),
+    "V": lambda amount = 0: Item(50, amount=amount),
+    "W": lambda amount = 0: Item(20, amount=amount),
+    "X": lambda amount = 0: Item(90, amount=amount),
+    "Y": lambda amount = 0: Item(10, amount=amount),
+    "Z": lambda amount = 0: Item(50, amount=amount)
 }

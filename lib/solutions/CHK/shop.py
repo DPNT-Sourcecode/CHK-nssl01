@@ -5,7 +5,7 @@ from solutions.CHK.item import Item
 SKU = NewType("SKU", str)
 
 class Shop:
-    def __init__(self, items):
+    def __init__(self):
         self.items: Dict[SKU, Item] = {}
 
     def add_item(self, sku: SKU, item: Item):
@@ -31,6 +31,7 @@ class Shop:
         for item in self.items.values():
             if item.deal != None:
                 item.deal()
+
 
 
 
