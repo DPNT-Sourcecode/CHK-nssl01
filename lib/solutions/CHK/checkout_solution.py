@@ -32,5 +32,9 @@ def checkout(skus: str) -> int:
         shop.add_item(sku, items[sku](amount))
 
 
+    shop.add_effect()
+
+
     return shop.get_total_price()
+
 
