@@ -134,7 +134,8 @@ class TestCheckout:
     def test_deploy_4_failed_1(self):
         assert checkout("UUU") == 120
 
-    def test_group():
+    def test_group(self):
         assert checkout("STX") == 45
+
 
 

@@ -29,6 +29,9 @@ class Shop:
         return self.items[sku].amount
 
     def get_total_price(self):
+        # Maybe groups should go first?
+        self.run_groups()
+
         self.run_effects()
         total = 0
         for item in self.items.values():
@@ -38,21 +41,22 @@ class Shop:
     def add_group(self, group: Group):
         self.groups.append(group)
 
-    def run_groups(self, skus: [SKU], group_size: int, price: int):
+    def run_groups(self):
         groups_total = 0
         seen = {}
-        for sku in skus:
-            if self.items[sku].amount > 0:
-                if sku not in seen:
-                    seen[sku] = 1
-                else:
-                    seen[sku] += 1
+        for group in self.groups:
+            for sku in group.skus:
+                if self.items[sku].amount > 0:
+                    if sku not in seen:
+                        seen[sku] = 1
+                    else:
+                        seen[sku] += 1
 
-            if sum([x for x in seen.values()]) == group_size:
-                groups_total += group_size * price
+                if sum([x for x in seen.values()]) == group.size:
+                    groups_total += group.size * group.price
 
-                for sku in seen.keys():
-                    self.items[sku] -= 1
+                    for sku in seen.keys():
+                        self.items[sku].amount -= 1
 
         return groups_total
 
@@ -78,6 +82,7 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
 
 
