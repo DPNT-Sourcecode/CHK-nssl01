@@ -17,6 +17,3 @@ class Item:
             self.deal = partial(deal, self)
         
         self.effect = effect
-
-    def run_deal(self):
-        return self.deal(self)

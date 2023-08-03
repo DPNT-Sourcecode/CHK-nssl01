@@ -1,6 +1,6 @@
 from typing import Dict, NewType, Type
 from solutions.CHK.items import items
-from solutions.CHK.checkout_solution import Item
+from solutions.CHK.item import Item
 
 
 SKU = NewType("SKU", str)
