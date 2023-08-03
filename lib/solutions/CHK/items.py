@@ -1,74 +1,6 @@
 from solutions.CHK.item import Item, Price
 
-
-
-# def a_deal(self: Item) -> int:
-#     amount = self.amount
-#     total = 0
-
-#     a_5_deals = amount // 5
-#     total += a_5_deals * 200
-#     amount -= a_5_deals * 5
-
-#     a_3_deals = (amount // 3)
-#     total += a_3_deals * 130
-#     amount -= a_3_deals * 3
-
-#     total += amount * self.price
-
-#     return total
-
-def b_deal(self: Item) -> int:
-        amount = self.amount
-        total = 0
-
-        b_deals = (amount // 2)
-        total += b_deals * 45
-        total += (amount % 2) * self.price
-
-        return total
-
-def f_deal(self: Item) -> int:
-    n_to_remove = self.amount // 3
-    amount = self.amount - n_to_remove
-    
-    return amount * self.price
-
-def h_deal(self: Item) -> int:
-    amount = self.amount
-    total = 0
-
-    h_10_deals = amount // 10
-    total += h_10_deals * 80
-    amount -= h_10_deals * 10
-
-    a_5_deals = (amount // 5)
-    total += a_5_deals * 45
-    amount -= a_5_deals * 5
-
-    total += amount * self.price
-
-    return total
-
-def k_deal(self: Item) -> int:
-    amount = self.amount
-    total = 0
-
-    b_deals = (amount // 2)
-    total += b_deals * 150
-    total += (amount % 2) * self.price
-
-    return total
-
-def k_deal(self: Item) -> int:
-    amount = self.amount
-    total = 0
-
-    b_deals = (amount // 2)
-    total += b_deals * 150
-    total += (amount % 2) * self.price
-
-    return total
+def make_effect(shop, )
 
 # Takes 'Shop'
 def e_effect(self) -> None:
@@ -91,7 +23,7 @@ def n_effect(self) -> None:
         # No minus amounts
         self.items["M"].amount = max(0, amount_after_bogo)
 
-# 3N get one M free
+# 3R get one Q free
 def r_effect(self) -> None:
     if "R" in self.items and "Q" in self.items:
         affected_amount = self.get_amount("Q")
@@ -100,6 +32,9 @@ def r_effect(self) -> None:
 
         # No minus amounts
         self.items["Q"].amount = max(0, amount_after_bogo)
+
+
+
 
 items = {
     "A": lambda amount: Item([Price(1, 50), Price(3, 130), Price(5, 200)], amount),
@@ -122,7 +57,7 @@ items = {
     "R": lambda amount = 0: Item([Price(1, 50)], amount, effect=r_effect),
     "S": lambda amount = 0: Item([Price(1, 30)], amount),
     "T": lambda amount = 0: Item([Price(1, 20)], amount),
-    "U": lambda amount = 0: Item([Price(1, 40)], amount),
+    "U": lambda amount = 0: Item([Price(1, 40), Price(3, 80)], amount),
     "V": lambda amount = 0: Item([Price(1, 50), Price(2, 90), Price(3, 130)], amount),
     "W": lambda amount = 0: Item([Price(1, 20)], amount),
     "X": lambda amount = 0: Item([Price(1, 90)], amount),
