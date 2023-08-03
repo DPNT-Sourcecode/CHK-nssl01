@@ -48,6 +48,17 @@ def h_deal(self: Item) -> int:
 
     return total
 
+def k_deal(self: Item) -> int:
+        amount = self.amount
+        total = 0
+
+        b_deals = (amount // 2)
+        total += b_deals * 150
+        total += (amount % 2) * self.price
+
+        return total
+
+
 # Takes 'Shop'
 def e_effect(self) -> None:
     if "E" in self.items and "B" in self.items:
@@ -67,10 +78,10 @@ items = {
     "E": lambda amount = 0: Item(40, amount, effect=e_effect),
     "F": lambda amount = 0: Item(10, amount, deal=f_deal),
     "G": lambda amount = 0: Item(20, amount),
-    "H": lambda amount = 0: Item(10, amount),
+    "H": lambda amount = 0: Item(10, amount, deal=h_deal),
     "I": lambda amount = 0: Item(35, amount),
     "J": lambda amount = 0: Item(60, amount),
-    "K": lambda amount = 0: Item(80, amount),
+    "K": lambda amount = 0: Item(80, amount, deal=k_deal),
     "L": lambda amount = 0: Item(90, amount),
     "M": lambda amount = 0: Item(15, amount),
     "N": lambda amount = 0: Item(40, amount),
@@ -87,4 +98,5 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
 

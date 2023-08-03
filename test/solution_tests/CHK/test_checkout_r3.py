@@ -138,7 +138,23 @@ class TestCheckout():
             "H"*3: 30,
             "H"*4: 40,
             "H"*5: 45,
-            "H"*8: 80,
+            # 5H for 45 + 3 * 10 = 75
+            "H"*8: 75,
+            "H"*10: 80,
+        }
+
+        for input, price in expected.items():
+            assert(checkout_solution.checkout(input) == price)
+
+    def test_h(self):
+        expected = {
+            "H": 10,
+            "H"*2: 20,
+            "H"*3: 30,
+            "H"*4: 40,
+            "H"*5: 45,
+            # 5H for 45 + 3 * 10 = 75
+            "H"*8: 75,
             "H"*10: 80,
         }
 
@@ -176,6 +192,7 @@ class TestCheckout():
         # total: 265?
         # E deal is considered before B's deal runs
         assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+
 
 
 
