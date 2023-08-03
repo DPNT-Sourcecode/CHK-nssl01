@@ -20,3 +20,10 @@ class Item:
         
         self.effect = effect
 
+    def get_total_price(self):
+        if self.deal != None:
+            return self.deal()
+        else:
+            return self.price * self.amount
+
+
