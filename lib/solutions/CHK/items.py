@@ -91,11 +91,10 @@ def n_effect(self) -> None:
         # No minus amounts
         self.items["M"].amount = max(0, amount_after_bogo)
 
-a_deal = Item([Price(1, 50), Price(3, 130), Price(5, 200)])
 
 items = {
     "A": lambda amount: Item([Price(1, 50), Price(3, 130), Price(5, 200)], amount),
-    "B": lambda amount = 0: Item([Price(1, 30)], amount),
+    "B": lambda amount = 0: Item([Price(1, 30), Price(2, 45)], amount),
     "C": lambda amount = 0: Item([Price(1, 20)], amount),
     "D": lambda amount = 0: Item([Price(1, 15)], amount),
     "E": lambda amount = 0: Item([Price(1, 40)], amount),
@@ -121,6 +120,7 @@ items = {
     "Y": lambda amount = 0: Item([Price(1, 10)], amount),
     "Z": lambda amount = 0: Item([Price(1, 50)], amount)
 }
+
 
 
 
