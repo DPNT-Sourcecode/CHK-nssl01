@@ -44,15 +44,18 @@ class Shop:
     def run_groups(self):
         groups_total = 0
         seen = {}
-        print(self.items)
+
         for group in self.groups:
             for sku in group.skus:
                 # Count the items with the group SKUs
-                if self.items[sku].amount > 0:
-                    if sku not in seen:
-                        seen[sku] = 1
-                    else:
-                        seen[sku] += 1
+                if sku in self.items:
+                    if self.items[sku].amount > 0:
+                        if sku not in seen:
+                            seen[sku] = 1
+                        else:
+                            seen[sku] += 1
+
+                print(seen)
 
                 # If we've reached the group size, add the price of the group
                 # And remove the SKUs that make up the group from the items
@@ -61,6 +64,8 @@ class Shop:
 
                     for sku in seen.keys():
                         self.items[sku].amount -= 1
+
+                    continue
 
         return groups_total
 
@@ -86,3 +91,4 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
