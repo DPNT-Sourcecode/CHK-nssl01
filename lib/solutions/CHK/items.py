@@ -1,13 +1,5 @@
-from dataclasses import dataclass
-from typing import List
-from solutions.CHK.item import Item
+from solutions.CHK.item import Item, Price
 
-@dataclass
-class Price:
-    amount: int
-    price: int
-
-class Pricing():
 
 
 # def a_deal(self: Item) -> int:
@@ -99,9 +91,10 @@ def n_effect(self) -> None:
         # No minus amounts
         self.items["M"].amount = max(0, amount_after_bogo)
 
-a_deal = Pricing([Price(1, 50), Price(3, 130), Price(5, 200)])
+a_deal = Item([Price(1, 50), Price(3, 130), Price(5, 200)])
 
 items = {
+    "A": lambda amount: Item([Price(1, 50), Price(3, 130), Price(5, 200)]),
     "A": lambda amount = 0: Item(50, amount, deal=a_deal),
     "B": lambda amount = 0: Item(30, amount, deal=b_deal),
     "C": lambda amount = 0: Item(20, amount),
@@ -129,5 +122,6 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
 
 
