@@ -7,7 +7,7 @@ from functools import partial
 class Item:
     def __init__(self,
                  price: int,
-                 amount: Optional[int] = 0,
+                 amount: int = 0,
                  deal: Optional[callable] = None,
                  effect: Optional[callable] = None,
         ) -> None:
@@ -15,5 +15,8 @@ class Item:
         self.amount = amount
         if deal:
             self.deal = partial(deal, self)
+        else:
+            self.deal = deal
         
         self.effect = effect
+
