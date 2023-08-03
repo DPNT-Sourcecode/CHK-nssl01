@@ -1,12 +1,18 @@
+from dataclasses import dataclass
+from typing import List
 from solutions.CHK.item import Item
 
-
+@dataclass
+class Offer:
+    amount: int
+    price: int
 
 class Deal():
-    def __init__(self, deals):
+    def __init__(self, deals: List[Offer]):
         self.deals = deals
 
-    def 
+    def build(self, item: Item):
+        sorted_by_amount = self.deals.sort(key=)
 
 def a_deal(self: Item) -> int:
     amount = self.amount
@@ -126,6 +132,7 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
 
 
 
