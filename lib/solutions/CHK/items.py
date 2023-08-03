@@ -3,30 +3,12 @@ from typing import List
 from solutions.CHK.item import Item
 
 @dataclass
-class Offer:
+class Price:
     amount: int
     price: int
 
-class Deal():
-    def __init__(self, deals: List[Offer]):
-        self.deals = deals
+class Pricing():
 
-    def build(self, item: Item):
-        def run_deal():
-            self.deals.sort(key=lambda x: x.amount)
-            total = 0
-            amount = item.amount
-            
-            for deal in self.deals:
-                current_deal = amount // deal.amount
-                total += current_deal * item.price
-                amount -= current_deal * deal.amount
-
-            total += amount * item.price
-
-            return total
-    
-        return run_deal
 
 # def a_deal(self: Item) -> int:
 #     amount = self.amount
@@ -117,7 +99,7 @@ def n_effect(self) -> None:
         # No minus amounts
         self.items["M"].amount = max(0, amount_after_bogo)
 
-a_deal = Deal([Offer(3, 130), Offer(5, 200)])
+a_deal = Pricing([Price(1, 50), Price(3, 130), Price(5, 200)])
 
 items = {
     "A": lambda amount = 0: Item(50, amount, deal=a_deal),
@@ -147,4 +129,5 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
 
