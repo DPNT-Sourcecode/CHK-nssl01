@@ -50,7 +50,11 @@ class Shop:
     def run_groups(self):
         groups_total = 0
         seen = {}
-        
+        for group in self.groups:
+            for sku in group:
+                if sku in self.items:
+                    
+
 
 
                 
@@ -78,6 +82,7 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
 
 
