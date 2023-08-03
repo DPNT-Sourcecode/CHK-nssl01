@@ -28,21 +28,21 @@ class Deal():
     
         return run_deal
 
-def a_deal(self: Item) -> int:
-    amount = self.amount
-    total = 0
+# def a_deal(self: Item) -> int:
+#     amount = self.amount
+#     total = 0
 
-    a_5_deals = amount // 5
-    total += a_5_deals * 200
-    amount -= a_5_deals * 5
+#     a_5_deals = amount // 5
+#     total += a_5_deals * 200
+#     amount -= a_5_deals * 5
 
-    a_3_deals = (amount // 3)
-    total += a_3_deals * 130
-    amount -= a_3_deals * 3
+#     a_3_deals = (amount // 3)
+#     total += a_3_deals * 130
+#     amount -= a_3_deals * 3
 
-    total += amount * self.price
+#     total += amount * self.price
 
-    return total
+#     return total
 
 def b_deal(self: Item) -> int:
         amount = self.amount
@@ -117,9 +117,10 @@ def n_effect(self) -> None:
         # No minus amounts
         self.items["M"].amount = max(0, amount_after_bogo)
 
+a_deal = Deal([Offer(3, 130), Offer(5, 200)])
 
 items = {
-    "A": lambda amount = 0: Item(50, amount, deal=Deal.build()),
+    "A": lambda amount = 0: Item(50, amount, deal=a_deal),
     "B": lambda amount = 0: Item(30, amount, deal=b_deal),
     "C": lambda amount = 0: Item(20, amount),
     "D": lambda amount = 0: Item(15, amount),
@@ -146,3 +147,4 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
