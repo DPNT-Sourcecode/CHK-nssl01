@@ -1,5 +1,4 @@
 from solutions.CHK.item import Item, Price
-from solutions.CHK.shop import SKU
 
 
 items = {
@@ -35,3 +34,4 @@ items = {
     "Y": lambda amount=0: Item([Price(1, 10)], amount),
     "Z": lambda amount=0: Item([Price(1, 50)], amount),
 }
+
