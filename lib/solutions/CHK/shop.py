@@ -19,18 +19,12 @@ class Shop:
     
     def get_total_price(self):
         self.run_effects()
-        self.run_deals()
         total = 0
         for sku, item in self.items.items():
-            total += item.get_total_price()
+            total += item.get_price()
         return total
 
     def run_effects(self):
         for item in self.items.values():
             if item.effect != None:
                 item.effect(self)
-
-    def run_deals(self):
-        for item in self.items.values():
-            if item.deal != None:
-                item.deal()

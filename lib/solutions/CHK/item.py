@@ -19,16 +19,17 @@ class Item:
         ) -> None:
         self.prices = prices
         self.amount = amount
+        self.effect = effect
 
     def get_price(self):
-        self.deals.sort(key=lambda x: x.amount)
+        self.prices.sort(key=lambda x: x.amount)
         total = 0
         amount = self.amount
         
-        for deal in self.deals:
-            current_deal = amount // deal.amount
-            total += current_deal * deal.price
-            amount -= current_deal * deal.amount
+        for price in self.prices:
+            current_deal = amount // price.amount
+            total += current_deal * price.price
+            amount -= current_deal * price.amount
 
         return total
 
