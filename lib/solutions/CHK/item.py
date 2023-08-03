@@ -16,11 +16,11 @@ class Item:
         if deal:
             self.deal = partial(deal, self)
         
-        if effect:
-            self.effect = partial(effect, self)
+        self.effect = effect
 
     def run_deal(self):
         return self.deal(self)
+
 
 
 

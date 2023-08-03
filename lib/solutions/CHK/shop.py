@@ -22,12 +22,13 @@ class Shop:
 
     def run_effects(self):
         for item in self.items.values():
-            if hasattr(item, "effect"):
-                item.effect()
+            if item.effect != None:
+                item.effect(self)
 
     def run_deals(self):
         for item in self.items.values():
             if item.deal != None:
                 item.deal()
+
 
 

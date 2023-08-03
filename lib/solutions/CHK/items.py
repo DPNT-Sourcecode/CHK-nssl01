@@ -16,12 +16,14 @@ def a_deal(self) -> int:
 
     return total
 
+# Takes 'Shop'
 def e_effect(self) -> None:
     if self.items["E"] != 0 and self.items["B"] != 0:
         b_amount = self.get_amount("B")
         e_amount = self.get_amount("E")
         b_amount_after_bogo = b_amount - (e_amount // 2)
-        self.items["B"].amount = b_amount_after_bogo
+        #
+        self.items["B"].amount = max(0, b_amount_after_bogo)
 
 items = {
     "A": Item(50, deal=a_deal),

@@ -41,6 +41,8 @@ class TestShop():
         shop.run_effects()
 
         assert(shop.get_amount("B") == 1)
+        assert(shop.get_amount("E") == 2)
+
 
 
 
