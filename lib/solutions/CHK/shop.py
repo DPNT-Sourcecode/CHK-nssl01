@@ -26,10 +26,14 @@ class Shop:
             total += item.get_price()
         return total
 
-"""
-Add an effect that will 
-"""
     def add_effect(self, affected: SKU, cause: SKU, amount: int):
+        """
+        Add an effect that will cause an amount of one SKU to impact another
+        affected: The SKU of the item impacted by the effect
+        cause: The SKU of the item that causes the effect
+        amount: The amount of cause required to have the effect
+        """
+
         def effect():
             if affected in self.items and cause in self.items:
                 affected_amount = self.get_amount(affected)
@@ -44,6 +48,7 @@ Add an effect that will
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
 
 
