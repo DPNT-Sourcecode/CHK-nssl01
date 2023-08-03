@@ -22,7 +22,7 @@ def e_effect(self) -> None:
         self.items["B"].amount = max(0, b_amount_after_bogo)
 
 
-e_effect = make_effect()
+# e_effect = make_effect()
 
 # 3N get one M free
 def n_effect(self) -> None:
@@ -75,4 +75,5 @@ items = {
     "Y": lambda amount = 0: Item([Price(1, 10)], amount),
     "Z": lambda amount = 0: Item([Price(1, 50)], amount)
 }
+
 
