@@ -1,12 +1,11 @@
 from typing import Dict, NewType, Type
-from solutions.CHK.items import items
 from solutions.CHK.item import Item
 
 
 SKU = NewType("SKU", str)
 
 class Shop:
-    def __init__(self):
+    def __init__(self, items):
         self.items: Dict[SKU, Item] = items
 
     def update_amount(self, sku: SKU, amount: int):
@@ -29,4 +28,5 @@ class Shop:
         for item in self.items.values():
             if item.deal != None:
                 item.deal()
+
 

@@ -26,7 +26,6 @@ def checkout(skus: str) -> int:
         else:
             count[sku] = 1
 
-    print(count)
     shop = Shop()
     for sku, amount in count.items():
         shop.update_amount(sku, amount)
@@ -35,6 +34,7 @@ def checkout(skus: str) -> int:
     shop.run_deals()
 
     return shop.get_total_price()
+
 
 
 
