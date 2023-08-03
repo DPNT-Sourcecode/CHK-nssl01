@@ -1,14 +1,21 @@
+from dataclasses import dataclass
 from typing import Dict, NewType, Type
 from solutions.CHK.item import Item
 
 
 SKU = NewType("SKU", str)
 
+@dataclass
+class Group():
+    skus: [SKU]
+    size: int
+    price: int
 
 class Shop:
     def __init__(self):
         self.items: Dict[SKU, Item] = {}
         self.effects = []
+        self.groups = []
 
     def add_item(self, sku: SKU, item: Item):
         self.items[sku] = item
@@ -26,7 +33,10 @@ class Shop:
             total += item.get_price()
         return total
 
-    def add_group(self, skus: [SKU], group_size: int, price: int):
+    def add_group(self, group: Group):
+        self.groups.append(group)
+
+    def run_groups(self, skus: [SKU], group_size: int, price: int):
         count = 0
         seen = {}
         for sku in skus:
@@ -62,5 +72,6 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
 
