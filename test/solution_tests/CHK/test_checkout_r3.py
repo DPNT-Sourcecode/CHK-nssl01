@@ -137,5 +137,7 @@ class TestCheckout:
     def test_group(self):
         assert checkout("STX") == 45
         assert checkout("XYZ") == 45
+        assert checkout("XYZSTX") == 90
         assert checkout("XYZZ") == 45 + 21
+
 

@@ -28,16 +28,15 @@ class Shop:
     def get_amount(self, sku: SKU):
         return self.items[sku].amount
 
-    """
-    Gets total price of basket
-
-    Cost affectors run in the following order:
-    1. groups
-    2. effects
-    3. deals
-    """
-
     def get_total_price(self):
+        """
+        Gets total price of basket
+
+        Cost affectors run in the following order:
+        1. groups
+        2. effects
+        3. deals
+        """
         total = self.run_groups()
 
         self.run_effects()
@@ -96,5 +95,6 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
 
