@@ -8,6 +8,7 @@ SKU = NewType("SKU", str)
 class Shop:
     def __init__(self):
         self.items: Dict[SKU, Item] = {}
+        self.effects = []
 
     def add_item(self, sku: SKU, item: Item):
         self.items[sku] = item
@@ -26,17 +27,24 @@ class Shop:
         return total
 
     def add_effect(self, affected: SKU, cause: SKU, amount: int):
-        if affected in self.items and cause in self.items:
-            affected_amount = self.get_amount(affected)
-            effect_amount = self.get_amount(cause)
-            amount_after_bogo = affected_amount - (effect_amount // 3)
+        def effect():
+            if affected in self.items and cause in self.items:
+                affected_amount = self.get_amount(affected)
+                effect_amount = self.get_amount(cause)
+                amount_after_bogo = affected_amount - (effect_amount // amount)
 
-            # No minus amounts
-            self.items[affected].amount = max(0, amount_after_bogo)
+                # No minus amounts
+                self.items[affected].amount = max(0, amount_after_bogo)
+
+        self.effects.push(effect)
 
     def run_effects(self):
+        for effect in self.effects:
+            effect()
+
         for item in self.items.values():
             if item.effect != None:
                 item.effect(self)
+
 
 

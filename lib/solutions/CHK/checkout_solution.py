@@ -6,19 +6,18 @@ from solutions.CHK.shop import Shop
 # skus = unicode string
 
 
-        
 def checkout(skus: str) -> int:
     if type(skus) != str:
         print("Wrong type")
         return -1
-    
+
     # Anything non A-Z is invalid
     valid = items.keys()
     for sku in skus:
         if sku not in valid:
             print("Invalid SKU")
             return -1
-        
+
     count = {}
 
     for sku in skus:
@@ -31,9 +30,7 @@ def checkout(skus: str) -> int:
     for sku, amount in count.items():
         shop.add_item(sku, items[sku](amount))
 
-
-    shop.add_effect()
-
+    shop.add_effect("B", "E", 2)
 
     return shop.get_total_price()
 

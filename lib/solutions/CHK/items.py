@@ -48,7 +48,7 @@ items = {
         amount,
     ),
     "D": lambda amount=0: Item([Price(1, 15)], amount),
-    "E": lambda amount=0: Item([Price(1, 40)], amount, effect=e_effect),
+    "E": lambda amount=0: Item([Price(1, 40)], amount),
     "F": lambda amount=0: Item([Price(1, 10), Price(2, 10)], amount),
     "G": lambda amount=0: Item([Price(1, 20)], amount),
     "H": lambda amount=0: Item([Price(1, 10), Price(5, 45), Price(10, 80)], amount),
@@ -71,6 +71,7 @@ items = {
     "Y": lambda amount=0: Item([Price(1, 10)], amount),
     "Z": lambda amount=0: Item([Price(1, 50)], amount),
 }
+
 
 
 
