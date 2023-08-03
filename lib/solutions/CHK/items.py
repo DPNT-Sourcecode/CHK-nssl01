@@ -2,6 +2,12 @@ from solutions.CHK.item import Item
 
 
 
+class Deal():
+    def __init__(self, deals):
+        self.deals = deals
+
+    def 
+
 def a_deal(self: Item) -> int:
     amount = self.amount
     total = 0
@@ -120,6 +126,7 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+
 
 
 
