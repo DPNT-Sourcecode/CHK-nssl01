@@ -28,7 +28,7 @@ class Shop:
     def get_amount(self, sku: SKU):
         return self.items[sku].amount
 
-    def get_total_price(self):
+    def get_total_price(self) -> int:
         """
         Gets total price of basket
 
@@ -47,7 +47,11 @@ class Shop:
     def add_group(self, group: Group):
         self.groups.append(group)
 
-    def run_groups(self):
+    def run_groups(self) -> int:
+        """
+        For each group, get as many groups as possible at the price given
+        Removes the items and returns the price of all group deals
+        """
         groups_total = 0
         seen = {}
         prev = []
@@ -91,6 +95,7 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
 
 
