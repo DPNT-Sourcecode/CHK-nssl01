@@ -1,6 +1,6 @@
 import copy
 from solutions.CHK.items import items
-from solutions.CHK.shop import Shop
+from solutions.CHK.shop import Group, Shop
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -34,5 +34,8 @@ def checkout(skus: str) -> int:
     shop.add_effect("M", "N", 3)
     shop.add_effect("Q", "R", 3)
 
+    shop.add_group(Group(["S", "T", "X", "Y", "Z"], 3, 45))
+
     return shop.get_total_price()
+
 
