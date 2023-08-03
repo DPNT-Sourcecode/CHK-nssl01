@@ -145,22 +145,23 @@ class TestCheckout():
         assert(checkout_solution.checkout(0) == -1)
 
 
-    # # Previous failed tests
-    # def test_failed(self):
-    #     assert(checkout_solution.checkout("EEEEBB") == 160)
+    # Previous failed tests
+    def test_failed(self):
+        assert(checkout_solution.checkout("EEEEBB") == 160)
 
-    # def test_2_failed(self):
-    #     assert(checkout_solution.checkout("BEBEEE") == 160)
+    def test_2_failed(self):
+        assert(checkout_solution.checkout("BEBEEE") == 160)
 
-    # def test_3_failed(self):
-    #     # Rerranged, AA BB CC DD EE
-    #     # 2A: 100
-    #     # 2B: (45 - 30) 15
-    #     # 2C: 40
-    #     # 2D: 30
-    #     # 2E: 80
-    #     # total: 265?
-    #     # E deal is considered before B's deal runs
-    #     assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+    def test_3_failed(self):
+        # Rerranged, AA BB CC DD EE
+        # 2A: 100
+        # 2B: (45 - 30) 15
+        # 2C: 40
+        # 2D: 30
+        # 2E: 80
+        # total: 265?
+        # E deal is considered before B's deal runs
+        assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+
 
 

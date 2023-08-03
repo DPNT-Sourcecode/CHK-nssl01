@@ -32,13 +32,27 @@ def f_deal(self: Item) -> int:
         
         return amount * self.price
 
+def a_deal(self: Item) -> int:
+    amount = self.amount
+    total = 0
+
+    a_5_deals = amount // 5
+    total += a_5_deals * 200
+    amount -= a_5_deals * 5
+
+    a_3_deals = (amount // 3)
+    total += a_3_deals * 130
+    amount -= a_3_deals * 3
+
+    total += amount * self.price
+
+    return total
+
 # Takes 'Shop'
 def e_effect(self) -> None:
     if "E" in self.items and "B" in self.items:
         b_amount = self.get_amount("B")
-        print(b_amount)
         e_amount = self.get_amount("E")
-        print(e_amount)
         b_amount_after_bogo = b_amount - (e_amount // 2)
 
         # No minus amounts
