@@ -136,7 +136,7 @@ class TestCheckout():
             "F": 10,
             "FF": 10,
             "FFF": 20,
-            "FFFF": 
+            "FFFF": 20,
         }
 
         for input, price in expected.items():
@@ -157,53 +157,54 @@ class TestCheckout():
         for input, price in expected.items():
             assert(checkout_solution.checkout(input) == price)
 
-    # def test_k(self):
-    #     expected = {
-    #         "K": 80,
-    #         "K"*2: 150,
-    #         "K"*3: 230, 
-    #         "K"*4: 300,
-    #     }
+    def test_k(self):
+        expected = {
+            "K": 80,
+            "K"*2: 150,
+            "K"*3: 230, 
+            "K"*4: 300,
+        }
 
-    #     for input, price in expected.items():
-    #         assert(checkout_solution.checkout(input) == price)
+        for input, price in expected.items():
+            assert(checkout_solution.checkout(input) == price)
 
     
-    # def test_n(self):
-    #     assert(checkout_solution.checkout("NNN") == 120)
-    #     assert(checkout_solution.checkout("NNNM") == 120)
+    def test_n(self):
+        assert(checkout_solution.checkout("NNN") == 120)
+        assert(checkout_solution.checkout("NNNM") == 120)
 
-    # def test_all(self):
-    #     # Assume input is like: "ABCABC" maybe?
-    #     assert(checkout_solution.checkout("ABCDEF") == 165)
+    def test_all(self):
+        # Assume input is like: "ABCABC" maybe?
+        assert(checkout_solution.checkout("ABCDEF") == 165)
 
-    # def test_empty_string(self):
-    #     assert(checkout_solution.checkout("") == 0)
+    def test_empty_string(self):
+        assert(checkout_solution.checkout("") == 0)
 
-    # def test_invalid(self):
-    #     assert(checkout_solution.checkout(">") == -1)
+    def test_invalid(self):
+        assert(checkout_solution.checkout(">") == -1)
 
-    # def test_wrong_type(self):
-    #     assert(checkout_solution.checkout(0) == -1)
+    def test_wrong_type(self):
+        assert(checkout_solution.checkout(0) == -1)
 
 
-    # # Previous failed tests
-    # def test_failed(self):
-    #     assert(checkout_solution.checkout("EEEEBB") == 160)
+    # Previous failed tests
+    def test_failed(self):
+        assert(checkout_solution.checkout("EEEEBB") == 160)
 
-    # def test_2_failed(self):
-    #     assert(checkout_solution.checkout("BEBEEE") == 160)
+    def test_2_failed(self):
+        assert(checkout_solution.checkout("BEBEEE") == 160)
 
-    # def test_3_failed(self):
-    #     # Rerranged, AA BB CC DD EE
-    #     # 2A: 100
-    #     # 2B: (45 - 30) 15
-    #     # 2C: 40
-    #     # 2D: 30
-    #     # 2E: 80
-    #     # total: 265?
-    #     # E deal is considered before B's deal runs
-    #     assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+    def test_3_failed(self):
+        # Rerranged, AA BB CC DD EE
+        # 2A: 100
+        # 2B: (45 - 30) 15
+        # 2C: 40
+        # 2D: 30
+        # 2E: 80
+        # total: 265?
+        # E deal is considered before B's deal runs
+        assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+
 
 
 
