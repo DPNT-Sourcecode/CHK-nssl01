@@ -44,9 +44,3 @@ class TestShop():
         assert(shop.get_amount("E") == 2)
 
 
-
-
-
-
-
-

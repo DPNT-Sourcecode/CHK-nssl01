@@ -1,69 +1,18 @@
-from solutions.CHK.items import Item
+from solutions.CHK.items import items
+from solutions.CHK.shop import Shop
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-# 3A for 130
-# 2B for 45
-prices = {
-    "A": 50,
-    "B": 30,
-    "C": 20,
-    "D": 15,
-    "E": 40,
-    "F": 10,
-}
-    
+
         
-
-class ItemA():
-    def __init__(self, amount: int) -> None:
-        self.amount = amount
-        self.price = 50
-
-
-
-class ItemB():
-    def __init__(self, amount: int) -> None:
-        self.amount = amount
-        self.price = 50
-
-    def total_price(self) -> int:
-
-
-
-
-class ItemE(Item):
-    def __init__(self, amount: int) -> None:
-        super().__init__(40, amount)
-
-class ItemF():
-    def __init__(self, amount: int) -> None:
-        self.amount = amount
-        self.price = 10
-
-    # 2F get one F free
-    # Instead of multi-pricing this item, they want to say
-    # "buy 2Fs and get another F free"
-    # The offer requires you to have 3 Fs in the basket.
-    def total_price(self) -> int:
-        n_to_remove = self.amount // 3
-        amount = self.amount - n_to_remove
-        
-        return amount * self.price
-
-
-
-
-
-
 def checkout(skus: str) -> int:
     if type(skus) != str:
         print("Wrong type")
         return -1
     
     # Anything but A, B, C, or D is invalid
-    valid = prices.keys()
+    valid = items.keys()
     for sku in skus:
         if sku not in valid:
             print("Invalid SKU")
@@ -76,6 +25,10 @@ def checkout(skus: str) -> int:
             count[sku] += 1
         else:
             count[sku] = 1
+
+    shop = Shop()
+    for sku, count in count:
+        
 
 
     # a_total = ItemA(count.get("A", 0)).total_price()
@@ -97,5 +50,4 @@ def checkout(skus: str) -> int:
     # return a_total + b_total + c_total + d_total + e_total + f_total
 
     return 0
-
 

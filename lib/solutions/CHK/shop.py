@@ -29,6 +29,3 @@ class Shop:
         for item in self.items.values():
             if item.deal != None:
                 item.deal()
-
-
-

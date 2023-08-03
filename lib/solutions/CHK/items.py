@@ -26,6 +26,12 @@ def b_deal(self: Item) -> int:
 
         return total
 
+def f_deal(self: Item) -> int:
+        n_to_remove = self.amount // 3
+        amount = self.amount - n_to_remove
+        
+        return amount * self.price
+
 # Takes 'Shop'
 def e_effect(self) -> None:
     if self.items["E"] != 0 and self.items["B"] != 0:
@@ -36,13 +42,14 @@ def e_effect(self) -> None:
         # No minus amounts
         self.items["B"].amount = max(0, b_amount_after_bogo)
 
+
 items = {
     "A": Item(50, deal=a_deal),
     "B": Item(30, deal=b_deal),
     "C": Item(20),
     "D": Item(15),
     "E": Item(40, effect=e_effect),
-    "F": Item(10),
+    "F": Item(10, deal=f_deal),
     "G": Item(20),
     "H": Item(10),
     "I": Item(35),
@@ -64,4 +71,3 @@ items = {
     "Y": Item(10),
     "Z": Item(50)
 }
-

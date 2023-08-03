@@ -20,7 +20,3 @@ class Item:
 
     def run_deal(self):
         return self.deal(self)
-
-
-
-
