@@ -29,5 +29,3 @@ items = {
     "Y": lambda amount=0: Item([Price(1, 20)], amount),
     "Z": lambda amount=0: Item([Price(1, 21)], amount),
 }
-
-

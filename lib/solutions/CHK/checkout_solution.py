@@ -37,5 +37,3 @@ def checkout(skus: str) -> int:
     shop.add_group(Group(["S", "T", "X", "Y", "Z"], 3, 45))
 
     return shop.get_total_price()
-
-

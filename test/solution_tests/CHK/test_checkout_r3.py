@@ -136,6 +136,3 @@ class TestCheckout:
 
     def test_group(self):
         assert checkout("STX") == 45
-
-
-
