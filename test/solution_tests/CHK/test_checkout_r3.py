@@ -139,9 +139,7 @@ class TestCheckout():
         assert(checkout_solution.checkout("") == 0)
 
     def test_invalid(self):
-        # This better not go to Z...
-        # :(
-        assert(checkout_solution.checkout("Z") == -1)
+        assert(checkout_solution.checkout(">") == -1)
 
     def test_wrong_type(self):
         assert(checkout_solution.checkout(0) == -1)
@@ -164,6 +162,7 @@ class TestCheckout():
     #     # total: 265?
     #     # E deal is considered before B's deal runs
     #     assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+
 
 
 
