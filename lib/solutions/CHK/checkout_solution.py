@@ -34,6 +34,8 @@ def checkout(skus: str) -> int:
     shop.add_effect("M", "N", 3)
     shop.add_effect("Q", "R", 3)
 
-    shop.add_group(Group(["S", "T", "X", "Y", "Z"], 3, 45))
+    # "Favour the customer" - take the most expensive group items first?
+    shop.add_group(Group(["Z", "S", "T", "Y", "X"], 3, 45))
 
     return shop.get_total_price()
+
