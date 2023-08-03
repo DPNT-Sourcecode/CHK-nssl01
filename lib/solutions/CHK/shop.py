@@ -26,6 +26,9 @@ class Shop:
             total += item.get_price()
         return total
 
+"""
+Add an effect that will 
+"""
     def add_effect(self, affected: SKU, cause: SKU, amount: int):
         def effect():
             if affected in self.items and cause in self.items:
@@ -36,15 +39,12 @@ class Shop:
                 # No minus amounts
                 self.items[affected].amount = max(0, amount_after_bogo)
 
-        self.effects.push(effect)
+        self.effects.append(effect)
 
     def run_effects(self):
         for effect in self.effects:
             effect()
 
-        for item in self.items.values():
-            if item.effect != None:
-                item.effect(self)
 
 
 
