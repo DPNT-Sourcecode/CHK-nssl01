@@ -1,3 +1,4 @@
+import copy
 from solutions.CHK.items import items
 from solutions.CHK.shop import Shop
 
@@ -26,14 +27,15 @@ def checkout(skus: str) -> int:
         else:
             count[sku] = 1
 
-    shop = Shop()
+    shop = Shop(copy.deepcopy(items))
     for sku, amount in count.items():
-        shop.update_amount(sku, amount)
+        shop.add_item(sku, Item())
 
     shop.run_effects()
     shop.run_deals()
 
     return shop.get_total_price()
+
 
 
 

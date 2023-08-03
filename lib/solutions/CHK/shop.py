@@ -6,7 +6,10 @@ SKU = NewType("SKU", str)
 
 class Shop:
     def __init__(self, items):
-        self.items: Dict[SKU, Item] = items
+        self.items: Dict[SKU, Item] = {}
+
+    def add_item(self, sku: SKU, item: Item):
+        self.items[sku] = item
 
     def update_amount(self, sku: SKU, amount: int):
         self.items[sku].amount = amount
@@ -28,5 +31,6 @@ class Shop:
         for item in self.items.values():
             if item.deal != None:
                 item.deal()
+
 
 
