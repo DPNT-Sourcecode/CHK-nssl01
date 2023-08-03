@@ -1,92 +1,5 @@
 from solutions.CHK.checkout_solution import checkout
 
-# class TestShop():
-#     def test_add_item(self):
-#         shop = checkout_solution.Shop()
-#         to_add = checkout_solution.Item()
-#         shop.add_item()
-
-# class TestA():
-#     def test_a(self):
-#         expected = {
-#             "A": 50,
-#             "AA": 100,
-#             # 3 for 130
-#             "AAA": 130,
-#             # 3 for 130 + 1 for 50
-#             "AAAA": 180,
-#             # 5 for 200
-#             "AAAAA": 200,
-#             # 8 for 200 + 3 for 130
-#             "AAAAAAAA": 330
-#         }
-
-
-#         for input, price in expected.items():
-#             a = checkout_solution.ItemA(amount=len(input))
-#             assert(a.total_price() == price)
-
-# class TestB():
-#     def test_b(self):
-#         expected = {
-#             "B": 30,
-#             ## 2 B for 45
-#             "BB": 45,
-#             # 3 for 30 + 45
-#             "BBB": 75,
-#             # 4 for 45 + 45
-#             "BBBB": 90,
-#             # 5 for 45 + 45 + 30
-#             "BBBBB": 120,
-#             # 8 45 * 4
-#             "BBBBBBBB": 180
-#         }
-
-
-#         for input, price in expected.items():
-#             b = checkout_solution.ItemB(amount=len(input))
-#             assert(b.total_price() == price)
-
-# class TestC():
-#     def test_c(self):
-#         for i in range(5):
-#             c = checkout_solution.ItemC(amount=i)
-#             assert(c.total_price() == i * 20)
-
-# class TestD():
-#     def test_d(self):
-#         for i in range(5):
-#             d = checkout_solution.ItemD(amount=i)
-#             assert(d.total_price() == i * 15)
-
-
-# class TestE():
-#     def test_e(self):
-#         for i in range(5):
-#             e = checkout_solution.ItemE(amount=i)
-#             assert(e.total_price() == i * 40)
-
-
-# class TestF():
-#     def test_f(self):
-#         expected = {
-#             "F": 10,
-#             "FF": 20,
-#             # 3 for 2
-#             "FFF": 20,
-#             # 3 for 2 + 1
-#             "FFFF": 30,
-#             # 3 for 2 + 2
-#             "FFFFF": 40,
-#             # 6 for 4 (2 * 3 for 2)
-#             "FFFFFF": 40,
-#         }
-
-
-#         for input, price in expected.items():
-#             f = checkout_solution.ItemF(amount=len(input))
-#             assert(f.total_price() == price)
-
 
 class TestCheckout:
     def test_one_a(self):
@@ -224,3 +137,4 @@ class TestCheckout:
 
 #  - {"method":"checkout","params":["FF"],"id":"CHK_R4_110"}, expected: 20, got: 10
 #  - {"method":"checkout","params":["FFFF"],"id":"CHK_R4_112"}, expected: 30, got: 20
+
