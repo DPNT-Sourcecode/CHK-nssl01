@@ -1,6 +1,6 @@
 from solutions.CHK.item import Item
 
-def a_deal(self) -> int:
+def a_deal(self: Item) -> int:
     amount = self.amount
     total = 0
 
@@ -16,18 +16,29 @@ def a_deal(self) -> int:
 
     return total
 
+def b_deal(self: Item) -> int:
+        amount = self.amount
+        total = 0
+
+        b_deals = (amount // 2)
+        total += b_deals * 45
+        total += (amount % 2) * self.price
+
+        return total
+
 # Takes 'Shop'
 def e_effect(self) -> None:
     if self.items["E"] != 0 and self.items["B"] != 0:
         b_amount = self.get_amount("B")
         e_amount = self.get_amount("E")
         b_amount_after_bogo = b_amount - (e_amount // 2)
-        #
+
+        # No minus amounts
         self.items["B"].amount = max(0, b_amount_after_bogo)
 
 items = {
     "A": Item(50, deal=a_deal),
-    "B": Item(30),
+    "B": Item(30, deal=b_deal),
     "C": Item(20),
     "D": Item(15),
     "E": Item(40, effect=e_effect),
@@ -53,3 +64,4 @@ items = {
     "Y": Item(10),
     "Z": Item(50)
 }
+

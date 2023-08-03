@@ -29,14 +29,7 @@ class ItemB():
         self.price = 50
 
     def total_price(self) -> int:
-        amount = self.amount
-        total = 0
 
-        b_deals = (amount // 2)
-        total += b_deals * 45
-        total += (amount % 2) * prices["B"]
-
-        return total
 
 
 
@@ -104,4 +97,5 @@ def checkout(skus: str) -> int:
     # return a_total + b_total + c_total + d_total + e_total + f_total
 
     return 0
+
 
