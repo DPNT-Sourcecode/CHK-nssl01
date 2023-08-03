@@ -32,17 +32,17 @@ def f_deal(self: Item) -> int:
         
         return amount * self.price
 
-def a_deal(self: Item) -> int:
+def h_deal(self: Item) -> int:
     amount = self.amount
     total = 0
 
-    a_5_deals = amount // 5
-    total += a_5_deals * 200
-    amount -= a_5_deals * 5
+    h_10_deals = amount // 10
+    total += h_10_deals * 80
+    amount -= h_10_deals * 10
 
-    a_3_deals = (amount // 3)
-    total += a_3_deals * 130
-    amount -= a_3_deals * 3
+    a_5_deals = (amount // 5)
+    total += a_5_deals * 45
+    amount -= a_5_deals * 5
 
     total += amount * self.price
 
@@ -87,3 +87,4 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
+

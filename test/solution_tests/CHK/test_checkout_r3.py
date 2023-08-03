@@ -131,6 +131,19 @@ class TestCheckout():
         # 2B: 30 + 0 (one is free)
         assert(checkout_solution.checkout("EEBB") == 110)
 
+    def test_h(self):
+        expected = {
+            "H": 10,
+            "H"*2: 20,
+            "H"*3: 30,
+            "H"*4: 40,
+            "H"*5: 45,
+            "H"*8: 80,
+            "H"*10: 80,
+        }
+
+        for 
+
     def test_all(self):
         # Assume input is like: "ABCABC" maybe?
         assert(checkout_solution.checkout("ABCDEF") == 165)
@@ -162,6 +175,7 @@ class TestCheckout():
         # total: 265?
         # E deal is considered before B's deal runs
         assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+
 
 
 
