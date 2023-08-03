@@ -139,6 +139,3 @@ class TestCheckout:
         # assert checkout("XYZ") == 45
         assert checkout("XYZSTX") == 90
         # assert checkout("XYZZ") == 45 + 21
-
-
-

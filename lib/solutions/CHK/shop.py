@@ -57,14 +57,15 @@ class Shop:
 
             count = 0
             for sku in group.skus:
-                for _ in range(0, seen[sku]):
-                    count += 1
-                    if count == group.size:
-                        
+                if sku in seen:
+                    for _ in range(0, seen[sku]):
+                        seen[sku] -= 1
+                        count += 1
+                        if count == group.size:
+                            groups_total += group.price
+                print(seen)
 
-
-        print(seen)
-
+        self.items 
         return groups_total
 
     def add_effect(self, affected: SKU, cause: SKU, amount: int):
@@ -89,11 +90,3 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
-
-
-
-
-
-
-
-
