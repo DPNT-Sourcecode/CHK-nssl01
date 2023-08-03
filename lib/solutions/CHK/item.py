@@ -22,6 +22,7 @@ class Item:
         self.effect = effect
 
     def get_price(self):
+        print(self.prices)
         self.prices.sort(key=lambda x: x.amount)
         total = 0
         amount = self.amount
