@@ -36,7 +36,9 @@ def f_deal(self: Item) -> int:
 def e_effect(self) -> None:
     if "E" in self.items and "B" in self.items:
         b_amount = self.get_amount("B")
+        print(b_amount)
         e_amount = self.get_amount("E")
+        print(e_amount)
         b_amount_after_bogo = b_amount - (e_amount // 2)
 
         # No minus amounts
@@ -71,4 +73,3 @@ items = {
     "Y": lambda amount = 0: Item(10, amount),
     "Z": lambda amount = 0: Item(50, amount)
 }
-

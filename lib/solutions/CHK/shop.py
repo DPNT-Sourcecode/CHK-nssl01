@@ -22,7 +22,7 @@ class Shop:
         self.run_deals()
         total = 0
         for sku, item in self.items.items():
-            print(sku, item.amount)
+            # print(sku, item.amount)
             total += item.get_total_price()
         return total
         # return sum([x.get_total_price() for x in self.items.values()])
@@ -36,8 +36,3 @@ class Shop:
         for item in self.items.values():
             if item.deal != None:
                 item.deal()
-
-
-
-
-

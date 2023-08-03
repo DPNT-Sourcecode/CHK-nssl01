@@ -24,8 +24,4 @@ class Item:
         if self.deal != None:
             return self.deal()
         else:
-            print(self.price, self.amount)
             return self.price * self.amount
-
-
-
