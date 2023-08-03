@@ -173,6 +173,13 @@ class TestCheckout():
         assert(checkout_solution.checkout("NNN") == 120)
         assert(checkout_solution.checkout("NNNM") == 120)
 
+    # 3R get one Q free  
+    def test_r(self):
+        # 50 * 3 + 30
+        assert(checkout_solution.checkout("RRR") == 150)
+        assert(checkout_solution.checkout("RRRQ") == 150)
+        assert(checkout_solution.checkout("RRRQQ") == 180)
+
     def test_all(self):
         # Assume input is like: "ABCABC" maybe?
         assert(checkout_solution.checkout("ABCDEF") == 165)
@@ -204,8 +211,5 @@ class TestCheckout():
         # total: 265?
         # E deal is considered before B's deal runs
         assert(checkout_solution.checkout("ABCDEABCDE") == 280)
-
-
-
 
 

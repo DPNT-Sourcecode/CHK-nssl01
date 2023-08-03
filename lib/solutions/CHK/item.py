@@ -32,5 +32,3 @@ class Item:
             amount -= current_deal * price.amount
 
         return total
-
-

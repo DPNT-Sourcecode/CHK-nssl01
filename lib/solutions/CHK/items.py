@@ -91,6 +91,15 @@ def n_effect(self) -> None:
         # No minus amounts
         self.items["M"].amount = max(0, amount_after_bogo)
 
+# 3N get one M free
+def r_effect(self) -> None:
+    if "R" in self.items and "Q" in self.items:
+        affected_amount = self.get_amount("Q")
+        effect_amount = self.get_amount("R")
+        amount_after_bogo = affected_amount - (effect_amount // 3)
+
+        # No minus amounts
+        self.items["Q"].amount = max(0, amount_after_bogo)
 
 items = {
     "A": lambda amount: Item([Price(1, 50), Price(3, 130), Price(5, 200)], amount),
@@ -110,7 +119,7 @@ items = {
     "O": lambda amount = 0: Item([Price(1, 10)], amount),
     "P": lambda amount = 0: Item([Price(1, 50), Price(5, 200)], amount),
     "Q": lambda amount = 0: Item([Price(1, 30), Price(3, 80)], amount),
-    "R": lambda amount = 0: Item([Price(1, 50)], amount),
+    "R": lambda amount = 0: Item([Price(1, 50)], amount, effect=r_effect),
     "S": lambda amount = 0: Item([Price(1, 30)], amount),
     "T": lambda amount = 0: Item([Price(1, 20)], amount),
     "U": lambda amount = 0: Item([Price(1, 40)], amount),
@@ -120,9 +129,3 @@ items = {
     "Y": lambda amount = 0: Item([Price(1, 10)], amount),
     "Z": lambda amount = 0: Item([Price(1, 50)], amount)
 }
-
-
-
-
-
-
