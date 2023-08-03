@@ -28,7 +28,17 @@ class Shop:
 
     def add_group(self, skus: [SKU], group_size: int, price: int):
         count = 0
-        
+        seen = {}
+        for sku in skus:
+            if self.items[sku].amount > 0:
+                if sku not in seen:
+                    seen[sku] = 1
+                else:
+                    seen[sku] += 1
+
+            if sum([x for x in seen.values()]) == group_size:
+                
+
 
     def add_effect(self, affected: SKU, cause: SKU, amount: int):
         """
@@ -52,4 +62,5 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
+
 
