@@ -121,30 +121,41 @@ class TestCheckout():
     def test_two_e(self):
         assert(checkout_solution.checkout("EE") == 80)
 
-    # def test_e_deal(self):
-    #     # (40 + 40) + 0 (B is free)
-    #     assert(checkout_solution.checkout("EEB") == 80)
+    def test_e_deal(self):
+        # (40 + 40) + 0 (B is free)
+        assert(checkout_solution.checkout("EEB") == 80)
 
-    # def test_e_deal_with_2_b(self):
-    #     # E: 40
-    #     # E: 40
-    #     # 2B: 30 + 0 (one is free)
-    #     assert(checkout_solution.checkout("EEBB") == 110)
+    def test_e_deal_with_2_b(self):
+        # E: 40
+        # E: 40
+        # 2B: 30 + 0 (one is free)
+        assert(checkout_solution.checkout("EEBB") == 110)
 
-    # def test_h(self):
-    #     expected = {
-    #         "H": 10,
-    #         "H"*2: 20,
-    #         "H"*3: 30,
-    #         "H"*4: 40,
-    #         "H"*5: 45,
-    #         # 5H for 45 + 3 * 10 = 75
-    #         "H"*8: 75,
-    #         "H"*10: 80,
-    #     }
+    def test_f(self):
+        expected = {
+            "F": 10,
+            "FF": 10,
+            "FFF": 20,
+            "FFFF": 
+        }
 
-    #     for input, price in expected.items():
-    #         assert(checkout_solution.checkout(input) == price)
+        for input, price in expected.items():
+            assert(checkout_solution.checkout(input) == price)
+
+    def test_h(self):
+        expected = {
+            "H": 10,
+            "H"*2: 20,
+            "H"*3: 30,
+            "H"*4: 40,
+            "H"*5: 45,
+            # 5H for 45 + 3 * 10 = 75
+            "H"*8: 75,
+            "H"*10: 80,
+        }
+
+        for input, price in expected.items():
+            assert(checkout_solution.checkout(input) == price)
 
     # def test_k(self):
     #     expected = {
@@ -193,6 +204,7 @@ class TestCheckout():
     #     # total: 265?
     #     # E deal is considered before B's deal runs
     #     assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+
 
 
 

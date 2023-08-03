@@ -97,7 +97,7 @@ items = {
     "B": lambda amount = 0: Item([Price(1, 30), Price(2, 45)], amount),
     "C": lambda amount = 0: Item([Price(1, 20)], amount),
     "D": lambda amount = 0: Item([Price(1, 15)], amount),
-    "E": lambda amount = 0: Item([Price(1, 40)], amount),
+    "E": lambda amount = 0: Item([Price(1, 40)], amount, effect=e_effect),
     "F": lambda amount = 0: Item([Price(1, 10)], amount),
     "G": lambda amount = 0: Item([Price(1, 20)], amount),
     "H": lambda amount = 0: Item([Price(1, 10)], amount),
@@ -106,7 +106,7 @@ items = {
     "K": lambda amount = 0: Item([Price(1, 80)], amount),
     "L": lambda amount = 0: Item([Price(1, 90)], amount),
     "M": lambda amount = 0: Item([Price(1, 15)], amount),
-    "N": lambda amount = 0: Item([Price(1, 40)], amount),
+    "N": lambda amount = 0: Item([Price(1, 40)], amount, effect=n_effect),
     "O": lambda amount = 0: Item([Price(1, 10)], amount),
     "P": lambda amount = 0: Item([Price(1, 50)], amount),
     "Q": lambda amount = 0: Item([Price(1, 30)], amount),
@@ -120,6 +120,7 @@ items = {
     "Y": lambda amount = 0: Item([Price(1, 10)], amount),
     "Z": lambda amount = 0: Item([Price(1, 50)], amount)
 }
+
 
 
 
