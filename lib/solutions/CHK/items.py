@@ -12,10 +12,21 @@ class Deal():
         self.deals = deals
 
     def build(self, item: Item):
-        self.deals.sort(key=lambda x: x.amount)
-        total = 0
+        def run_deal():
+            self.deals.sort(key=lambda x: x.amount)
+            total = 0
+            amount = item.amount
+            
+            for deal in self.deals:
+                current_deal = amount // deal.amount
+                total += current_deal * item.price
+                amount -= current_deal * deal.amount
 
-        for 
+            total += amount * item.price
+
+            return total
+    
+        return run_deal
 
 def a_deal(self: Item) -> int:
     amount = self.amount
@@ -108,7 +119,7 @@ def n_effect(self) -> None:
 
 
 items = {
-    "A": lambda amount = 0: Item(50, amount, deal=a_deal),
+    "A": lambda amount = 0: Item(50, amount, deal=Deal.build()),
     "B": lambda amount = 0: Item(30, amount, deal=b_deal),
     "C": lambda amount = 0: Item(20, amount),
     "D": lambda amount = 0: Item(15, amount),
