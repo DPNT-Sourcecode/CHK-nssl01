@@ -48,8 +48,3 @@ class Shop:
     def run_effects(self):
         for effect in self.effects:
             effect()
-
-
-
-
-

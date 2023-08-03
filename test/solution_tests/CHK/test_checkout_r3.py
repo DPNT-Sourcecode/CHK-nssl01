@@ -135,9 +135,9 @@ class TestCheckout:
     def test_f(self):
         expected = {
             "F": 10,
-            "FF": 10,
+            "FF": 20,
             "FFF": 20,
-            "FFFF": 20,
+            "FFFF": 30,
         }
 
         for input, price in expected.items():
@@ -184,7 +184,7 @@ class TestCheckout:
         # 50 * 3 + 30
         assert checkout("U") == 40
         assert checkout("UU") == 80
-        assert checkout("UUU") == 80
+        assert checkout("UUU") == 120
         assert checkout("UUUU") == 120
 
     def test_all(self):
@@ -219,6 +219,8 @@ class TestCheckout:
         assert checkout("ABCDEABCDE") == 280
 
     def test_deploy_4_failed_1(self):
-        assert (checkout("UUU") == 120)
+        assert checkout("UUU") == 120
 
 
+#  - {"method":"checkout","params":["FF"],"id":"CHK_R4_110"}, expected: 20, got: 10
+#  - {"method":"checkout","params":["FFFF"],"id":"CHK_R4_112"}, expected: 30, got: 20
