@@ -1,4 +1,4 @@
-from solutions.CHK import checkout_solution
+from solutions.CHK.checkout_solution import checkout
 
 # class TestShop():
 #     def test_add_item(self):
@@ -87,49 +87,50 @@ from solutions.CHK import checkout_solution
 #             f = checkout_solution.ItemF(amount=len(input))
 #             assert(f.total_price() == price)
 
-class TestCheckout():
+
+class TestCheckout:
     def test_one_a(self):
-        assert(checkout_solution.checkout("A") == 50)
+        assert checkout("A") == 50
 
     def test_two_a(self):
-        assert(checkout_solution.checkout("AA") == 100)
+        assert checkout("AA") == 100
 
     def test_three_a(self):
-        assert(checkout_solution.checkout("AAA") == 130)
+        assert checkout("AAA") == 130
 
     def test_five_a(self):
-        assert(checkout_solution.checkout("AAAAA") == 200)
+        assert checkout("AAAAA") == 200
 
     def test_one_b(self):
-        assert(checkout_solution.checkout("B") == 30)
+        assert checkout("B") == 30
 
     def test_two_b(self):
-        assert(checkout_solution.checkout("BB") == 45)
+        assert checkout("BB") == 45
 
     def test_three_b(self):
-        assert(checkout_solution.checkout("BBB") == 75)
+        assert checkout("BBB") == 75
 
     def test_c(self):
-        assert(checkout_solution.checkout("C") == 20)
+        assert checkout("C") == 20
 
     def test_d(self):
-        assert(checkout_solution.checkout("D") == 15)
+        assert checkout("D") == 15
 
     def test_e(self):
-        assert(checkout_solution.checkout("E") == 40)
+        assert checkout("E") == 40
 
     def test_two_e(self):
-        assert(checkout_solution.checkout("EE") == 80)
+        assert checkout("EE") == 80
 
     def test_e_deal(self):
         # (40 + 40) + 0 (B is free)
-        assert(checkout_solution.checkout("EEB") == 80)
+        assert checkout("EEB") == 80
 
     def test_e_deal_with_2_b(self):
         # E: 40
         # E: 40
         # 2B: 30 + 0 (one is free)
-        assert(checkout_solution.checkout("EEBB") == 110)
+        assert checkout("EEBB") == 110
 
     def test_f(self):
         expected = {
@@ -140,73 +141,71 @@ class TestCheckout():
         }
 
         for input, price in expected.items():
-            assert(checkout_solution.checkout(input) == price)
+            assert checkout(input) == price
 
     def test_h(self):
         expected = {
             "H": 10,
-            "H"*2: 20,
-            "H"*3: 30,
-            "H"*4: 40,
-            "H"*5: 45,
+            "H" * 2: 20,
+            "H" * 3: 30,
+            "H" * 4: 40,
+            "H" * 5: 45,
             # 5H for 45 + 3 * 10 = 75
-            "H"*8: 75,
-            "H"*10: 80,
+            "H" * 8: 75,
+            "H" * 10: 80,
         }
 
         for input, price in expected.items():
-            assert(checkout_solution.checkout(input) == price)
+            assert checkout(input) == price
 
     def test_k(self):
         expected = {
             "K": 80,
-            "K"*2: 150,
-            "K"*3: 230, 
-            "K"*4: 300,
+            "K" * 2: 150,
+            "K" * 3: 230,
+            "K" * 4: 300,
         }
 
         for input, price in expected.items():
-            assert(checkout_solution.checkout(input) == price)
+            assert checkout(input) == price
 
-    
     def test_n(self):
-        assert(checkout_solution.checkout("NNN") == 120)
-        assert(checkout_solution.checkout("NNNM") == 120)
+        assert checkout("NNN") == 120
+        assert checkout("NNNM") == 120
 
-    # 3R get one Q free  
+    # 3R get one Q free
     def test_r(self):
         # 50 * 3 + 30
-        assert(checkout_solution.checkout("RRR") == 150)
-        assert(checkout_solution.checkout("RRRQ") == 150)
-        assert(checkout_solution.checkout("RRRQQ") == 180)
+        assert checkout("RRR") == 150
+        assert checkout("RRRQ") == 150
+        assert checkout("RRRQQ") == 180
 
     def test_u(self):
         # 50 * 3 + 30
-        assert(checkout_solution.checkout("U") == 40)
-        assert(checkout_solution.checkout("UU") == 80)
-        assert(checkout_solution.checkout("UUU") == 80)
-        assert(checkout_solution.checkout("UUUU") == 120)
+        assert checkout("U") == 40
+        assert checkout("UU") == 80
+        assert checkout("UUU") == 80
+        assert checkout("UUUU") == 120
 
     def test_all(self):
         # Assume input is like: "ABCABC" maybe?
-        assert(checkout_solution.checkout("ABCDEF") == 165)
+        assert checkout("ABCDEF") == 165
 
     def test_empty_string(self):
-        assert(checkout_solution.checkout("") == 0)
+        assert checkout("") == 0
 
     def test_invalid(self):
-        assert(checkout_solution.checkout(">") == -1)
+        assert checkout(">") == -1
 
     def test_wrong_type(self):
-        assert(checkout_solution.checkout(0) == -1)
-
+        assert checkout(0) == -1
 
     # Previous failed tests
     def test_failed(self):
-        assert(checkout_solution.checkout("EEEEBB") == 160)
+        assert checkout("EEEEBB") == 160
 
     def test_2_failed(self):
-        assert(checkout_solution.checkout("BEBEEE") == 160)
+        assert checkout("BEBEEE") == 160
 
     def test_3_failed(self):
         # Rerranged, AA BB CC DD EE
@@ -217,7 +216,9 @@ class TestCheckout():
         # 2E: 80
         # total: 265?
         # E deal is considered before B's deal runs
-        assert(checkout_solution.checkout("ABCDEABCDE") == 280)
+        assert checkout("ABCDEABCDE") == 280
 
+    def test_deploy_4_failed_1(self):
+        assert (checkout("UUU") == 120)
 
 

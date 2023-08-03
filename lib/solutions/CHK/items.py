@@ -28,13 +28,14 @@ items = {
     "R": lambda amount=0: Item([Price(1, 50)], amount),
     "S": lambda amount=0: Item([Price(1, 30)], amount),
     "T": lambda amount=0: Item([Price(1, 20)], amount),
-    "U": lambda amount=0: Item([Price(1, 40), Price(3, 80)], amount),
+    "U": lambda amount=0: Item([Price(1, 40), Price(4, 120)], amount),
     "V": lambda amount=0: Item([Price(1, 50), Price(2, 90), Price(3, 130)], amount),
     "W": lambda amount=0: Item([Price(1, 20)], amount),
     "X": lambda amount=0: Item([Price(1, 90)], amount),
     "Y": lambda amount=0: Item([Price(1, 10)], amount),
     "Z": lambda amount=0: Item([Price(1, 50)], amount),
 }
+
 
 
 
